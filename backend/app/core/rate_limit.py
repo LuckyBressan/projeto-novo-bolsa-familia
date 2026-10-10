@@ -25,19 +25,22 @@ class Limitador:
         self._trava = asyncio.Lock()
 
     async def aguardar_vez(self) -> None:
+        # Conta na chegada: quem fica na fila atrás de uma chamada em espera encontra a janela já aberta ao entrar.
+        if self._janela_cheia():
+            self.chamadas_bloqueadas += 1
         async with self._trava:
-            self._descartar_antigas()
-            if len(self._chamadas) >= self.limite_por_minuto:
-                self.chamadas_bloqueadas += 1
-                while len(self._chamadas) >= self.limite_por_minuto:
-                    await self._dormir(self._chamadas[0] + JANELA_SEGUNDOS - self._relogio())
-                    self._descartar_antigas()
+            while self._janela_cheia():
+                await self._dormir(self._chamadas[0] + JANELA_SEGUNDOS - self._relogio())
             self._chamadas.append(self._relogio())
             self.chamadas_desde_inicio += 1
 
     def chamadas_ultimo_minuto(self) -> int:
         self._descartar_antigas()
         return len(self._chamadas)
+
+    def _janela_cheia(self) -> bool:
+        self._descartar_antigas()
+        return len(self._chamadas) >= self.limite_por_minuto
 
     def _descartar_antigas(self) -> None:
         limite = self._relogio() - JANELA_SEGUNDOS
