@@ -1,0 +1,310 @@
+{
+  "executado_em": "2026-10-10T14:13:20-03:00",
+  "parametros": {
+    "base_url": "http://backend:8000",
+    "consultas": 30,
+    "paralelas": 20,
+    "semente": 1
+  },
+  "resumo": {
+    "consultas": 30,
+    "respostas": {
+      "200": 30
+    },
+    "erros_limite": 0,
+    "tempo_mediano": 0.111,
+    "tempo_maximo": 60.048,
+    "pico_chamadas_minuto": 150,
+    "limite_rpm": 150,
+    "aprovado": true
+  },
+  "amostras_chamadas_minuto": [
+    0,
+    150,
+    150,
+    150,
+    150,
+    150,
+    150,
+    150,
+    150,
+    150,
+    150,
+    150,
+    150,
+    150,
+    150,
+    150,
+    150,
+    150,
+    150,
+    150,
+    150,
+    150,
+    150,
+    150,
+    150,
+    150,
+    150,
+    150,
+    150,
+    150,
+    150,
+    150,
+    150,
+    150,
+    150,
+    150,
+    150,
+    150,
+    150,
+    150,
+    150,
+    150,
+    150,
+    150,
+    150,
+    150,
+    150,
+    150,
+    150,
+    150,
+    150,
+    150,
+    150,
+    150,
+    150,
+    150,
+    150,
+    150,
+    150,
+    150,
+    148
+  ],
+  "consumo_final": {
+    "modo_mock": true,
+    "limite_rpm_configurado": 150,
+    "chamadas_ultimo_minuto": 148,
+    "chamadas_desde_inicio": 186,
+    "chamadas_bloqueadas_pelo_limitador": 36,
+    "cache": {
+      "itens": 186,
+      "hits": 10,
+      "misses": 189,
+      "ttl_segundos": 3600
+    },
+    "iniciado_em": "2026-10-10T14:12:18-03:00"
+  },
+  "consultas": [
+    {
+      "tipo": "indicadores",
+      "caminho": "/api/v1/municipios/4106902/indicadores?ano=2024&mes_inicio=10&mes_fim=10",
+      "http_status": 200,
+      "codigo_erro": null,
+      "segundos": 0.047
+    },
+    {
+      "tipo": "comparacao",
+      "caminho": "/api/v1/comparacoes/municipios?codigo_ibge_a=2800308&codigo_ibge_b=4202404&ano=2023&mes_inicio=10&mes_fim=11",
+      "http_status": 200,
+      "codigo_erro": null,
+      "segundos": 0.084
+    },
+    {
+      "tipo": "indicadores",
+      "caminho": "/api/v1/municipios/2704302/indicadores?ano=2024&mes_inicio=2&mes_fim=3",
+      "http_status": 200,
+      "codigo_erro": null,
+      "segundos": 0.089
+    },
+    {
+      "tipo": "evolucao",
+      "caminho": "/api/v1/evolucao-mensal?codigo_ibge_a=1200401&codigo_ibge_b=3509502&ano=2026&mes_inicio=7&mes_fim=8",
+      "http_status": 200,
+      "codigo_erro": null,
+      "segundos": 0.093
+    },
+    {
+      "tipo": "indicadores",
+      "caminho": "/api/v1/municipios/2304400/indicadores?ano=2025&mes_inicio=12&mes_fim=12",
+      "http_status": 200,
+      "codigo_erro": null,
+      "segundos": 0.092
+    },
+    {
+      "tipo": "comparacao",
+      "caminho": "/api/v1/comparacoes/municipios?codigo_ibge_a=2704302&codigo_ibge_b=1200401&ano=2025&mes_inicio=1&mes_fim=1",
+      "http_status": 200,
+      "codigo_erro": null,
+      "segundos": 0.105
+    },
+    {
+      "tipo": "evolucao",
+      "caminho": "/api/v1/evolucao-mensal?codigo_ibge_a=2704302&codigo_ibge_b=1501402&ano=2026&mes_inicio=4&mes_fim=5",
+      "http_status": 200,
+      "codigo_erro": null,
+      "segundos": 0.105
+    },
+    {
+      "tipo": "capitais",
+      "caminho": "/api/v1/capitais/comparacao?codigo_ibge_referencia=1501402&ano=2026&mes_inicio=8&mes_fim=8",
+      "http_status": 200,
+      "codigo_erro": null,
+      "segundos": 0.064
+    },
+    {
+      "tipo": "indicadores",
+      "caminho": "/api/v1/municipios/1501402/indicadores?ano=2025&mes_inicio=4&mes_fim=6",
+      "http_status": 200,
+      "codigo_erro": null,
+      "segundos": 0.126
+    },
+    {
+      "tipo": "comparacao",
+      "caminho": "/api/v1/comparacoes/municipios?codigo_ibge_a=4209102&codigo_ibge_b=2304400&ano=2026&mes_inicio=5&mes_fim=5",
+      "http_status": 200,
+      "codigo_erro": null,
+      "segundos": 0.14
+    },
+    {
+      "tipo": "indicadores",
+      "caminho": "/api/v1/municipios/2211001/indicadores?ano=2024&mes_inicio=11&mes_fim=12",
+      "http_status": 200,
+      "codigo_erro": null,
+      "segundos": 0.139
+    },
+    {
+      "tipo": "evolucao",
+      "caminho": "/api/v1/evolucao-mensal?codigo_ibge_a=4214805&codigo_ibge_b=5002704&ano=2023&mes_inicio=8&mes_fim=10",
+      "http_status": 200,
+      "codigo_erro": null,
+      "segundos": 0.143
+    },
+    {
+      "tipo": "indicadores",
+      "caminho": "/api/v1/municipios/1721000/indicadores?ano=2025&mes_inicio=5&mes_fim=7",
+      "http_status": 200,
+      "codigo_erro": null,
+      "segundos": 0.15
+    },
+    {
+      "tipo": "comparacao",
+      "caminho": "/api/v1/comparacoes/municipios?codigo_ibge_a=2507507&codigo_ibge_b=4205407&ano=2026&mes_inicio=1&mes_fim=2",
+      "http_status": 200,
+      "codigo_erro": null,
+      "segundos": 0.155
+    },
+    {
+      "tipo": "evolucao",
+      "caminho": "/api/v1/evolucao-mensal?codigo_ibge_a=1400100&codigo_ibge_b=2927408&ano=2026&mes_inicio=3&mes_fim=4",
+      "http_status": 200,
+      "codigo_erro": null,
+      "segundos": 0.159
+    },
+    {
+      "tipo": "capitais",
+      "caminho": "/api/v1/capitais/comparacao?codigo_ibge_referencia=4205407&ano=2026&mes_inicio=2&mes_fim=2",
+      "http_status": 200,
+      "codigo_erro": null,
+      "segundos": 0.089
+    },
+    {
+      "tipo": "indicadores",
+      "caminho": "/api/v1/municipios/2704302/indicadores?ano=2025&mes_inicio=8&mes_fim=10",
+      "http_status": 200,
+      "codigo_erro": null,
+      "segundos": 0.17
+    },
+    {
+      "tipo": "comparacao",
+      "caminho": "/api/v1/comparacoes/municipios?codigo_ibge_a=4205407&codigo_ibge_b=2111300&ano=2026&mes_inicio=1&mes_fim=2",
+      "http_status": 200,
+      "codigo_erro": null,
+      "segundos": 0.124
+    },
+    {
+      "tipo": "indicadores",
+      "caminho": "/api/v1/municipios/1200401/indicadores?ano=2024&mes_inicio=9&mes_fim=9",
+      "http_status": 200,
+      "codigo_erro": null,
+      "segundos": 0.149
+    },
+    {
+      "tipo": "evolucao",
+      "caminho": "/api/v1/evolucao-mensal?codigo_ibge_a=1501402&codigo_ibge_b=4205407&ano=2024&mes_inicio=9&mes_fim=11",
+      "http_status": 200,
+      "codigo_erro": null,
+      "segundos": 60.048
+    },
+    {
+      "tipo": "indicadores",
+      "caminho": "/api/v1/municipios/3550308/indicadores?ano=2025&mes_inicio=10&mes_fim=11",
+      "http_status": 200,
+      "codigo_erro": null,
+      "segundos": 0.092
+    },
+    {
+      "tipo": "comparacao",
+      "caminho": "/api/v1/comparacoes/municipios?codigo_ibge_a=1200401&codigo_ibge_b=4202404&ano=2025&mes_inicio=11&mes_fim=12",
+      "http_status": 200,
+      "codigo_erro": null,
+      "segundos": 0.117
+    },
+    {
+      "tipo": "evolucao",
+      "caminho": "/api/v1/evolucao-mensal?codigo_ibge_a=3106200&codigo_ibge_b=4214805&ano=2024&mes_inicio=9&mes_fim=11",
+      "http_status": 200,
+      "codigo_erro": null,
+      "segundos": 0.095
+    },
+    {
+      "tipo": "capitais",
+      "caminho": "/api/v1/capitais/comparacao?codigo_ibge_referencia=5002704&ano=2023&mes_inicio=10&mes_fim=11",
+      "http_status": 200,
+      "codigo_erro": null,
+      "segundos": 59.965
+    },
+    {
+      "tipo": "indicadores",
+      "caminho": "/api/v1/municipios/4209102/indicadores?ano=2026&mes_inicio=8&mes_fim=8",
+      "http_status": 200,
+      "codigo_erro": null,
+      "segundos": 0.059
+    },
+    {
+      "tipo": "comparacao",
+      "caminho": "/api/v1/comparacoes/municipios?codigo_ibge_a=4314902&codigo_ibge_b=3550308&ano=2025&mes_inicio=1&mes_fim=3",
+      "http_status": 200,
+      "codigo_erro": null,
+      "segundos": 0.097
+    },
+    {
+      "tipo": "indicadores",
+      "caminho": "/api/v1/municipios/5103403/indicadores?ano=2023&mes_inicio=6&mes_fim=8",
+      "http_status": 200,
+      "codigo_erro": null,
+      "segundos": 0.075
+    },
+    {
+      "tipo": "evolucao",
+      "caminho": "/api/v1/evolucao-mensal?codigo_ibge_a=4106902&codigo_ibge_b=1600303&ano=2024&mes_inicio=2&mes_fim=4",
+      "http_status": 200,
+      "codigo_erro": null,
+      "segundos": 59.957
+    },
+    {
+      "tipo": "indicadores",
+      "caminho": "/api/v1/municipios/3509502/indicadores?ano=2023&mes_inicio=4&mes_fim=4",
+      "http_status": 200,
+      "codigo_erro": null,
+      "segundos": 59.947
+    },
+    {
+      "tipo": "comparacao",
+      "caminho": "/api/v1/comparacoes/municipios?codigo_ibge_a=2611606&codigo_ibge_b=5300108&ano=2023&mes_inicio=7&mes_fim=7",
+      "http_status": 200,
+      "codigo_erro": null,
+      "segundos": 0.055
+    }
+  ]
+}

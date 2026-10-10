@@ -46,4 +46,5 @@ services:
     volumes:
       - ./backend:/app
     environment:
+      TZ: ${TZ:-America/Sao_Paulo}
       MODO_MOCK: "true"
