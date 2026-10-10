@@ -34,7 +34,8 @@ def sem_valores_variaveis(corpo: dict) -> dict:
 def test_rota_responde_igual_exemplo_mock(exemplo):
     esperado = json.loads((PASTA_EXEMPLOS / exemplo["arquivo"]).read_text(encoding="utf-8"))
 
-    resposta = TestClient(app).get(exemplo["rota"])
+    with TestClient(app) as cliente:
+        resposta = cliente.get(exemplo["rota"])
 
     assert resposta.status_code == exemplo["http_status"]
     assert sem_valores_variaveis(resposta.json()) == sem_valores_variaveis(esperado)

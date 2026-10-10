@@ -12,6 +12,7 @@ services:
         required: false
     environment:
       APP_ENV: ${APP_ENV:-development}
+      TZ: ${TZ:-America/Sao_Paulo}
       LOG_LEVEL: ${LOG_LEVEL:-INFO}
       CACHE_TTL_SECONDS: ${CACHE_TTL_SECONDS:-3600}
       MODO_MOCK: ${MODO_MOCK:-true}
