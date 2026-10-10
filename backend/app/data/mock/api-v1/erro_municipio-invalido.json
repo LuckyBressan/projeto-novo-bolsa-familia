@@ -1,0 +1,10 @@
+{
+  "erro": {
+    "codigo": "MUNICIPIO_INVALIDO",
+    "mensagem": "Município não encontrado no catálogo.",
+    "detalhes": {
+      "codigo_ibge": "9999999"
+    },
+    "correlacao_id": "exemplo-0000"
+  }
+}

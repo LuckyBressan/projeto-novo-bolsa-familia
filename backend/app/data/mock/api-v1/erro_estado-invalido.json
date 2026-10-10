@@ -1,0 +1,10 @@
+{
+  "erro": {
+    "codigo": "ESTADO_INVALIDO",
+    "mensagem": "UF inexistente.",
+    "detalhes": {
+      "uf": "XX"
+    },
+    "correlacao_id": "exemplo-0000"
+  }
+}

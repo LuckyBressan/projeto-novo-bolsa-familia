@@ -1,0 +1,7 @@
+{
+  "erro": {
+    "codigo": "FONTE_INDISPONIVEL",
+    "mensagem": "Não foi possível consultar os dados oficiais neste momento.",
+    "correlacao_id": "exemplo-0000"
+  }
+}

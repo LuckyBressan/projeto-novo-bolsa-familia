@@ -1,0 +1,45 @@
+{
+  "fonte": "mock",
+  "periodo": {
+    "ano": 2023,
+    "mes_inicio": 10,
+    "mes_fim": 12,
+    "meses": [
+      "2023-10",
+      "2023-11",
+      "2023-12"
+    ]
+  },
+  "municipios": [
+    {
+      "municipio": {
+        "codigo_ibge": "4202404",
+        "nome": "Blumenau",
+        "uf": "SC"
+      },
+      "indicadores": {
+        "status_dado": "parcial",
+        "meses_solicitados": 3,
+        "meses_com_dados": 2,
+        "valor_total": 7430521.26,
+        "beneficiarios_media_mensal": 5773.0,
+        "valor_medio_por_beneficiario": 643.56
+      }
+    },
+    {
+      "municipio": {
+        "codigo_ibge": "4209102",
+        "nome": "Joinville",
+        "uf": "SC"
+      },
+      "indicadores": {
+        "status_dado": "disponivel",
+        "meses_solicitados": 3,
+        "meses_com_dados": 3,
+        "valor_total": 20372293.05,
+        "beneficiarios_media_mensal": 10466.0,
+        "valor_medio_por_beneficiario": 648.84
+      }
+    }
+  ]
+}

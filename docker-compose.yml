@@ -1,0 +1,48 @@
+name: comparativo-bolsa-familia
+
+services:
+  backend:
+    build:
+      context: ./backend
+      target: runtime
+    ports:
+      - "${BACKEND_PORT:-8000}:8000"
+    env_file:
+      - path: .env
+        required: false
+    environment:
+      APP_ENV: ${APP_ENV:-development}
+      LOG_LEVEL: ${LOG_LEVEL:-INFO}
+      CACHE_TTL_SECONDS: ${CACHE_TTL_SECONDS:-3600}
+      MODO_MOCK: ${MODO_MOCK:-true}
+      MOCK_DIR: ${MOCK_DIR:-app/data/mock}
+      PERIODO_MIN: ${PERIODO_MIN:-2023-03}
+      PERIODO_MAX: ${PERIODO_MAX:-2024-12}
+      MAX_MESES_INTERVALO: ${MAX_MESES_INTERVALO:-3}
+      PORTAL_LIMITE_RPM: ${PORTAL_LIMITE_RPM:-150}
+      PORTAL_API_BASE_URL: ${PORTAL_API_BASE_URL:-https://api.portaldatransparencia.gov.br/api-de-dados}
+      PORTAL_HTTP_TIMEOUT_SECONDS: ${PORTAL_HTTP_TIMEOUT_SECONDS:-10}
+      PORTAL_MAX_RETRIES: ${PORTAL_MAX_RETRIES:-1}
+      CORS_ORIGINS: ${CORS_ORIGINS:-http://localhost:5173}
+    healthcheck:
+      test:
+        - CMD
+        - python
+        - -c
+        - "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/api/v1/health', timeout=3)"
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+    restart: unless-stopped
+
+  backend-tests:
+    build:
+      context: ./backend
+      target: test
+    profiles:
+      - test
+    volumes:
+      - ./backend:/app
+    environment:
+      MODO_MOCK: "true"

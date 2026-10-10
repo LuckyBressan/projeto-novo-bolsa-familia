@@ -1,0 +1,1194 @@
+{
+  "fonte": "mock",
+  "periodo": {
+    "ano": 2024,
+    "mes_inicio": 1,
+    "mes_fim": 3,
+    "meses": [
+      "2024-01",
+      "2024-02",
+      "2024-03"
+    ]
+  },
+  "metrica_ranking": "valor_total",
+  "filtro_capitais": null,
+  "total_capitais": 27,
+  "referencia": {
+    "municipio": {
+      "codigo_ibge": "4214805",
+      "nome": "Rio do Sul",
+      "uf": "SC"
+    },
+    "indicadores": {
+      "status_dado": "disponivel",
+      "meses_solicitados": 3,
+      "meses_com_dados": 3,
+      "valor_total": 3042086.65,
+      "beneficiarios_media_mensal": 1582.0,
+      "valor_medio_por_beneficiario": 640.98
+    },
+    "meses": [
+      {
+        "mes": "2024-01",
+        "status_dado": "disponivel",
+        "valor_total": 1013272.42,
+        "beneficiarios": 1574,
+        "valor_medio_por_beneficiario": 643.76,
+        "variacao_beneficiarios_absoluta": null
+      },
+      {
+        "mes": "2024-02",
+        "status_dado": "disponivel",
+        "valor_total": 1023980.19,
+        "beneficiarios": 1590,
+        "valor_medio_por_beneficiario": 644.01,
+        "variacao_beneficiarios_absoluta": 16
+      },
+      {
+        "mes": "2024-03",
+        "status_dado": "disponivel",
+        "valor_total": 1004834.04,
+        "beneficiarios": 1582,
+        "valor_medio_por_beneficiario": 635.17,
+        "variacao_beneficiarios_absoluta": -8
+      }
+    ],
+    "posicao_entre_capitais": 27
+  },
+  "capitais": [
+    {
+      "municipio": {
+        "codigo_ibge": "3550308",
+        "nome": "São Paulo",
+        "uf": "SP"
+      },
+      "indicadores": {
+        "status_dado": "disponivel",
+        "meses_solicitados": 3,
+        "meses_com_dados": 3,
+        "valor_total": 1384095675.14,
+        "beneficiarios_media_mensal": 696328.33,
+        "valor_medio_por_beneficiario": 662.57
+      },
+      "meses": [
+        {
+          "mes": "2024-01",
+          "status_dado": "disponivel",
+          "valor_total": 453534333.48,
+          "beneficiarios": 690346,
+          "valor_medio_por_beneficiario": 656.97,
+          "variacao_beneficiarios_absoluta": null
+        },
+        {
+          "mes": "2024-02",
+          "status_dado": "disponivel",
+          "valor_total": 461158660.37,
+          "beneficiarios": 696469,
+          "valor_medio_por_beneficiario": 662.14,
+          "variacao_beneficiarios_absoluta": 6123
+        },
+        {
+          "mes": "2024-03",
+          "status_dado": "disponivel",
+          "valor_total": 469402681.29,
+          "beneficiarios": 702170,
+          "valor_medio_por_beneficiario": 668.5,
+          "variacao_beneficiarios_absoluta": 5701
+        }
+      ],
+      "posicao_ranking": 1
+    },
+    {
+      "municipio": {
+        "codigo_ibge": "3304557",
+        "nome": "Rio de Janeiro",
+        "uf": "RJ"
+      },
+      "indicadores": {
+        "status_dado": "disponivel",
+        "meses_solicitados": 3,
+        "meses_com_dados": 3,
+        "valor_total": 1150175401.31,
+        "beneficiarios_media_mensal": 576467.33,
+        "valor_medio_por_beneficiario": 665.07
+      },
+      "meses": [
+        {
+          "mes": "2024-01",
+          "status_dado": "disponivel",
+          "valor_total": 385339048.73,
+          "beneficiarios": 577249,
+          "valor_medio_por_beneficiario": 667.54,
+          "variacao_beneficiarios_absoluta": null
+        },
+        {
+          "mes": "2024-02",
+          "status_dado": "disponivel",
+          "valor_total": 382828580.91,
+          "beneficiarios": 578645,
+          "valor_medio_por_beneficiario": 661.59,
+          "variacao_beneficiarios_absoluta": 1396
+        },
+        {
+          "mes": "2024-03",
+          "status_dado": "disponivel",
+          "valor_total": 382007771.67,
+          "beneficiarios": 573508,
+          "valor_medio_por_beneficiario": 666.09,
+          "variacao_beneficiarios_absoluta": -5137
+        }
+      ],
+      "posicao_ranking": 2
+    },
+    {
+      "municipio": {
+        "codigo_ibge": "2927408",
+        "nome": "Salvador",
+        "uf": "BA"
+      },
+      "indicadores": {
+        "status_dado": "disponivel",
+        "meses_solicitados": 3,
+        "meses_com_dados": 3,
+        "valor_total": 756521952.19,
+        "beneficiarios_media_mensal": 373393.33,
+        "valor_medio_por_beneficiario": 675.36
+      },
+      "meses": [
+        {
+          "mes": "2024-01",
+          "status_dado": "disponivel",
+          "valor_total": 248501950.91,
+          "beneficiarios": 369651,
+          "valor_medio_por_beneficiario": 672.26,
+          "variacao_beneficiarios_absoluta": null
+        },
+        {
+          "mes": "2024-02",
+          "status_dado": "disponivel",
+          "valor_total": 251361742.57,
+          "beneficiarios": 373604,
+          "valor_medio_por_beneficiario": 672.8,
+          "variacao_beneficiarios_absoluta": 3953
+        },
+        {
+          "mes": "2024-03",
+          "status_dado": "disponivel",
+          "valor_total": 256658258.71,
+          "beneficiarios": 376925,
+          "valor_medio_por_beneficiario": 680.93,
+          "variacao_beneficiarios_absoluta": 3321
+        }
+      ],
+      "posicao_ranking": 3
+    },
+    {
+      "municipio": {
+        "codigo_ibge": "2304400",
+        "nome": "Fortaleza",
+        "uf": "CE"
+      },
+      "indicadores": {
+        "status_dado": "disponivel",
+        "meses_solicitados": 3,
+        "meses_com_dados": 3,
+        "valor_total": 641760627.21,
+        "beneficiarios_media_mensal": 313162.0,
+        "valor_medio_por_beneficiario": 683.1
+      },
+      "meses": [
+        {
+          "mes": "2024-01",
+          "status_dado": "disponivel",
+          "valor_total": 212062788.42,
+          "beneficiarios": 311842,
+          "valor_medio_por_beneficiario": 680.03,
+          "variacao_beneficiarios_absoluta": null
+        },
+        {
+          "mes": "2024-02",
+          "status_dado": "disponivel",
+          "valor_total": 213463221.1,
+          "beneficiarios": 313397,
+          "valor_medio_por_beneficiario": 681.13,
+          "variacao_beneficiarios_absoluta": 1555
+        },
+        {
+          "mes": "2024-03",
+          "status_dado": "disponivel",
+          "valor_total": 216234617.69,
+          "beneficiarios": 314247,
+          "valor_medio_por_beneficiario": 688.1,
+          "variacao_beneficiarios_absoluta": 850
+        }
+      ],
+      "posicao_ranking": 4
+    },
+    {
+      "municipio": {
+        "codigo_ibge": "1302603",
+        "nome": "Manaus",
+        "uf": "AM"
+      },
+      "indicadores": {
+        "status_dado": "disponivel",
+        "meses_solicitados": 3,
+        "meses_com_dados": 3,
+        "valor_total": 470481153.95,
+        "beneficiarios_media_mensal": 223594.67,
+        "valor_medio_por_beneficiario": 701.39
+      },
+      "meses": [
+        {
+          "mes": "2024-01",
+          "status_dado": "disponivel",
+          "valor_total": 157141734.75,
+          "beneficiarios": 223625,
+          "valor_medio_por_beneficiario": 702.7,
+          "variacao_beneficiarios_absoluta": null
+        },
+        {
+          "mes": "2024-02",
+          "status_dado": "disponivel",
+          "valor_total": 157273263.58,
+          "beneficiarios": 224620,
+          "valor_medio_por_beneficiario": 700.17,
+          "variacao_beneficiarios_absoluta": 995
+        },
+        {
+          "mes": "2024-03",
+          "status_dado": "disponivel",
+          "valor_total": 156066155.62,
+          "beneficiarios": 222539,
+          "valor_medio_por_beneficiario": 701.3,
+          "variacao_beneficiarios_absoluta": -2081
+        }
+      ],
+      "posicao_ranking": 5
+    },
+    {
+      "municipio": {
+        "codigo_ibge": "2611606",
+        "nome": "Recife",
+        "uf": "PE"
+      },
+      "indicadores": {
+        "status_dado": "disponivel",
+        "meses_solicitados": 3,
+        "meses_com_dados": 3,
+        "valor_total": 428260942.33,
+        "beneficiarios_media_mensal": 209101.33,
+        "valor_medio_por_beneficiario": 682.7
+      },
+      "meses": [
+        {
+          "mes": "2024-01",
+          "status_dado": "disponivel",
+          "valor_total": 141687452.83,
+          "beneficiarios": 207550,
+          "valor_medio_por_beneficiario": 682.67,
+          "variacao_beneficiarios_absoluta": null
+        },
+        {
+          "mes": "2024-02",
+          "status_dado": "disponivel",
+          "valor_total": 141829081.91,
+          "beneficiarios": 208629,
+          "valor_medio_por_beneficiario": 679.81,
+          "variacao_beneficiarios_absoluta": 1079
+        },
+        {
+          "mes": "2024-03",
+          "status_dado": "disponivel",
+          "valor_total": 144744407.59,
+          "beneficiarios": 211125,
+          "valor_medio_por_beneficiario": 685.59,
+          "variacao_beneficiarios_absoluta": 2496
+        }
+      ],
+      "posicao_ranking": 6
+    },
+    {
+      "municipio": {
+        "codigo_ibge": "5300108",
+        "nome": "Brasília",
+        "uf": "DF"
+      },
+      "indicadores": {
+        "status_dado": "disponivel",
+        "meses_solicitados": 3,
+        "meses_com_dados": 3,
+        "valor_total": 398426200.18,
+        "beneficiarios_media_mensal": 199287.33,
+        "valor_medio_por_beneficiario": 666.42
+      },
+      "meses": [
+        {
+          "mes": "2024-01",
+          "status_dado": "disponivel",
+          "valor_total": 132273299.76,
+          "beneficiarios": 198887,
+          "valor_medio_por_beneficiario": 665.07,
+          "variacao_beneficiarios_absoluta": null
+        },
+        {
+          "mes": "2024-02",
+          "status_dado": "disponivel",
+          "valor_total": 132769191.91,
+          "beneficiarios": 199953,
+          "valor_medio_por_beneficiario": 664.0,
+          "variacao_beneficiarios_absoluta": 1066
+        },
+        {
+          "mes": "2024-03",
+          "status_dado": "disponivel",
+          "valor_total": 133383708.51,
+          "beneficiarios": 199022,
+          "valor_medio_por_beneficiario": 670.2,
+          "variacao_beneficiarios_absoluta": -931
+        }
+      ],
+      "posicao_ranking": 7
+    },
+    {
+      "municipio": {
+        "codigo_ibge": "3106200",
+        "nome": "Belo Horizonte",
+        "uf": "MG"
+      },
+      "indicadores": {
+        "status_dado": "disponivel",
+        "meses_solicitados": 3,
+        "meses_com_dados": 3,
+        "valor_total": 342041962.91,
+        "beneficiarios_media_mensal": 173951.33,
+        "valor_medio_por_beneficiario": 655.44
+      },
+      "meses": [
+        {
+          "mes": "2024-01",
+          "status_dado": "disponivel",
+          "valor_total": 113950392.44,
+          "beneficiarios": 173831,
+          "valor_medio_por_beneficiario": 655.52,
+          "variacao_beneficiarios_absoluta": null
+        },
+        {
+          "mes": "2024-02",
+          "status_dado": "disponivel",
+          "valor_total": 113835045.96,
+          "beneficiarios": 173603,
+          "valor_medio_por_beneficiario": 655.72,
+          "variacao_beneficiarios_absoluta": -228
+        },
+        {
+          "mes": "2024-03",
+          "status_dado": "disponivel",
+          "valor_total": 114256524.51,
+          "beneficiarios": 174420,
+          "valor_medio_por_beneficiario": 655.07,
+          "variacao_beneficiarios_absoluta": 817
+        }
+      ],
+      "posicao_ranking": 8
+    },
+    {
+      "municipio": {
+        "codigo_ibge": "1501402",
+        "nome": "Belém",
+        "uf": "PA"
+      },
+      "indicadores": {
+        "status_dado": "disponivel",
+        "meses_solicitados": 3,
+        "meses_com_dados": 3,
+        "valor_total": 331698063.9,
+        "beneficiarios_media_mensal": 159286.33,
+        "valor_medio_por_beneficiario": 694.13
+      },
+      "meses": [
+        {
+          "mes": "2024-01",
+          "status_dado": "disponivel",
+          "valor_total": 109819707.41,
+          "beneficiarios": 157935,
+          "valor_medio_por_beneficiario": 695.35,
+          "variacao_beneficiarios_absoluta": null
+        },
+        {
+          "mes": "2024-02",
+          "status_dado": "disponivel",
+          "valor_total": 111434894.57,
+          "beneficiarios": 159731,
+          "valor_medio_por_beneficiario": 697.64,
+          "variacao_beneficiarios_absoluta": 1796
+        },
+        {
+          "mes": "2024-03",
+          "status_dado": "disponivel",
+          "valor_total": 110443461.92,
+          "beneficiarios": 160193,
+          "valor_medio_por_beneficiario": 689.44,
+          "variacao_beneficiarios_absoluta": 462
+        }
+      ],
+      "posicao_ranking": 9
+    },
+    {
+      "municipio": {
+        "codigo_ibge": "2111300",
+        "nome": "São Luís",
+        "uf": "MA"
+      },
+      "indicadores": {
+        "status_dado": "disponivel",
+        "meses_solicitados": 3,
+        "meses_com_dados": 3,
+        "valor_total": 294237047.79,
+        "beneficiarios_media_mensal": 142007.67,
+        "valor_medio_por_beneficiario": 690.66
+      },
+      "meses": [
+        {
+          "mes": "2024-01",
+          "status_dado": "disponivel",
+          "valor_total": 97868642.59,
+          "beneficiarios": 141967,
+          "valor_medio_por_beneficiario": 689.38,
+          "variacao_beneficiarios_absoluta": null
+        },
+        {
+          "mes": "2024-02",
+          "status_dado": "disponivel",
+          "valor_total": 97786148.64,
+          "beneficiarios": 142060,
+          "valor_medio_por_beneficiario": 688.34,
+          "variacao_beneficiarios_absoluta": 93
+        },
+        {
+          "mes": "2024-03",
+          "status_dado": "disponivel",
+          "valor_total": 98582256.56,
+          "beneficiarios": 141996,
+          "valor_medio_por_beneficiario": 694.26,
+          "variacao_beneficiarios_absoluta": -64
+        }
+      ],
+      "posicao_ranking": 10
+    },
+    {
+      "municipio": {
+        "codigo_ibge": "2704302",
+        "nome": "Maceió",
+        "uf": "AL"
+      },
+      "indicadores": {
+        "status_dado": "disponivel",
+        "meses_solicitados": 3,
+        "meses_com_dados": 3,
+        "valor_total": 234204805.03,
+        "beneficiarios_media_mensal": 114457.33,
+        "valor_medio_por_beneficiario": 682.07
+      },
+      "meses": [
+        {
+          "mes": "2024-01",
+          "status_dado": "disponivel",
+          "valor_total": 78082894.7,
+          "beneficiarios": 115257,
+          "valor_medio_por_beneficiario": 677.47,
+          "variacao_beneficiarios_absoluta": null
+        },
+        {
+          "mes": "2024-02",
+          "status_dado": "disponivel",
+          "valor_total": 77933182.94,
+          "beneficiarios": 114070,
+          "valor_medio_por_beneficiario": 683.2,
+          "variacao_beneficiarios_absoluta": -1187
+        },
+        {
+          "mes": "2024-03",
+          "status_dado": "disponivel",
+          "valor_total": 78188727.39,
+          "beneficiarios": 114045,
+          "valor_medio_por_beneficiario": 685.6,
+          "variacao_beneficiarios_absoluta": -25
+        }
+      ],
+      "posicao_ranking": 11
+    },
+    {
+      "municipio": {
+        "codigo_ibge": "2211001",
+        "nome": "Teresina",
+        "uf": "PI"
+      },
+      "indicadores": {
+        "status_dado": "disponivel",
+        "meses_solicitados": 3,
+        "meses_com_dados": 3,
+        "valor_total": 217550523.27,
+        "beneficiarios_media_mensal": 107823.33,
+        "valor_medio_por_beneficiario": 672.55
+      },
+      "meses": [
+        {
+          "mes": "2024-01",
+          "status_dado": "disponivel",
+          "valor_total": 73116539.17,
+          "beneficiarios": 107977,
+          "valor_medio_por_beneficiario": 677.15,
+          "variacao_beneficiarios_absoluta": null
+        },
+        {
+          "mes": "2024-02",
+          "status_dado": "disponivel",
+          "valor_total": 72615097.98,
+          "beneficiarios": 108460,
+          "valor_medio_por_beneficiario": 669.51,
+          "variacao_beneficiarios_absoluta": 483
+        },
+        {
+          "mes": "2024-03",
+          "status_dado": "disponivel",
+          "valor_total": 71818886.12,
+          "beneficiarios": 107033,
+          "valor_medio_por_beneficiario": 671.0,
+          "variacao_beneficiarios_absoluta": -1427
+        }
+      ],
+      "posicao_ranking": 12
+    },
+    {
+      "municipio": {
+        "codigo_ibge": "2507507",
+        "nome": "João Pessoa",
+        "uf": "PB"
+      },
+      "indicadores": {
+        "status_dado": "disponivel",
+        "meses_solicitados": 3,
+        "meses_com_dados": 3,
+        "valor_total": 185267738.11,
+        "beneficiarios_media_mensal": 91462.33,
+        "valor_medio_por_beneficiario": 675.21
+      },
+      "meses": [
+        {
+          "mes": "2024-01",
+          "status_dado": "disponivel",
+          "valor_total": 61712301.74,
+          "beneficiarios": 91332,
+          "valor_medio_por_beneficiario": 675.69,
+          "variacao_beneficiarios_absoluta": null
+        },
+        {
+          "mes": "2024-02",
+          "status_dado": "disponivel",
+          "valor_total": 62363130.7,
+          "beneficiarios": 91756,
+          "valor_medio_por_beneficiario": 679.66,
+          "variacao_beneficiarios_absoluta": 424
+        },
+        {
+          "mes": "2024-03",
+          "status_dado": "disponivel",
+          "valor_total": 61192305.67,
+          "beneficiarios": 91299,
+          "valor_medio_por_beneficiario": 670.24,
+          "variacao_beneficiarios_absoluta": -457
+        }
+      ],
+      "posicao_ranking": 13
+    },
+    {
+      "municipio": {
+        "codigo_ibge": "4314902",
+        "nome": "Porto Alegre",
+        "uf": "RS"
+      },
+      "indicadores": {
+        "status_dado": "disponivel",
+        "meses_solicitados": 3,
+        "meses_com_dados": 3,
+        "valor_total": 183952797.71,
+        "beneficiarios_media_mensal": 94155.0,
+        "valor_medio_por_beneficiario": 651.24
+      },
+      "meses": [
+        {
+          "mes": "2024-01",
+          "status_dado": "disponivel",
+          "valor_total": 61669888.76,
+          "beneficiarios": 93790,
+          "valor_medio_por_beneficiario": 657.53,
+          "variacao_beneficiarios_absoluta": null
+        },
+        {
+          "mes": "2024-02",
+          "status_dado": "disponivel",
+          "valor_total": 60920771.66,
+          "beneficiarios": 93997,
+          "valor_medio_por_beneficiario": 648.11,
+          "variacao_beneficiarios_absoluta": 207
+        },
+        {
+          "mes": "2024-03",
+          "status_dado": "disponivel",
+          "valor_total": 61362137.29,
+          "beneficiarios": 94678,
+          "valor_medio_por_beneficiario": 648.11,
+          "variacao_beneficiarios_absoluta": 681
+        }
+      ],
+      "posicao_ranking": 14
+    },
+    {
+      "municipio": {
+        "codigo_ibge": "2408102",
+        "nome": "Natal",
+        "uf": "RN"
+      },
+      "indicadores": {
+        "status_dado": "disponivel",
+        "meses_solicitados": 3,
+        "meses_com_dados": 3,
+        "valor_total": 176663848.77,
+        "beneficiarios_media_mensal": 88086.0,
+        "valor_medio_por_beneficiario": 668.53
+      },
+      "meses": [
+        {
+          "mes": "2024-01",
+          "status_dado": "disponivel",
+          "valor_total": 58144854.8,
+          "beneficiarios": 87441,
+          "valor_medio_por_beneficiario": 664.96,
+          "variacao_beneficiarios_absoluta": null
+        },
+        {
+          "mes": "2024-02",
+          "status_dado": "disponivel",
+          "valor_total": 59397162.5,
+          "beneficiarios": 88282,
+          "valor_medio_por_beneficiario": 672.81,
+          "variacao_beneficiarios_absoluta": 841
+        },
+        {
+          "mes": "2024-03",
+          "status_dado": "disponivel",
+          "valor_total": 59121831.47,
+          "beneficiarios": 88535,
+          "valor_medio_por_beneficiario": 667.78,
+          "variacao_beneficiarios_absoluta": 253
+        }
+      ],
+      "posicao_ranking": 15
+    },
+    {
+      "municipio": {
+        "codigo_ibge": "5208707",
+        "nome": "Goiânia",
+        "uf": "GO"
+      },
+      "indicadores": {
+        "status_dado": "disponivel",
+        "meses_solicitados": 3,
+        "meses_com_dados": 3,
+        "valor_total": 172654183.56,
+        "beneficiarios_media_mensal": 87240.33,
+        "valor_medio_por_beneficiario": 659.69
+      },
+      "meses": [
+        {
+          "mes": "2024-01",
+          "status_dado": "disponivel",
+          "valor_total": 57904577.27,
+          "beneficiarios": 87366,
+          "valor_medio_por_beneficiario": 662.78,
+          "variacao_beneficiarios_absoluta": null
+        },
+        {
+          "mes": "2024-02",
+          "status_dado": "disponivel",
+          "valor_total": 56722482.89,
+          "beneficiarios": 86752,
+          "valor_medio_por_beneficiario": 653.85,
+          "variacao_beneficiarios_absoluta": -614
+        },
+        {
+          "mes": "2024-03",
+          "status_dado": "disponivel",
+          "valor_total": 58027123.4,
+          "beneficiarios": 87603,
+          "valor_medio_por_beneficiario": 662.39,
+          "variacao_beneficiarios_absoluta": 851
+        }
+      ],
+      "posicao_ranking": 16
+    },
+    {
+      "municipio": {
+        "codigo_ibge": "4106902",
+        "nome": "Curitiba",
+        "uf": "PR"
+      },
+      "indicadores": {
+        "status_dado": "disponivel",
+        "meses_solicitados": 3,
+        "meses_com_dados": 3,
+        "valor_total": 145970032.28,
+        "beneficiarios_media_mensal": 74915.0,
+        "valor_medio_por_beneficiario": 649.49
+      },
+      "meses": [
+        {
+          "mes": "2024-01",
+          "status_dado": "disponivel",
+          "valor_total": 49232453.37,
+          "beneficiarios": 75442,
+          "valor_medio_por_beneficiario": 652.59,
+          "variacao_beneficiarios_absoluta": null
+        },
+        {
+          "mes": "2024-02",
+          "status_dado": "disponivel",
+          "valor_total": 48125889.4,
+          "beneficiarios": 74363,
+          "valor_medio_por_beneficiario": 647.18,
+          "variacao_beneficiarios_absoluta": -1079
+        },
+        {
+          "mes": "2024-03",
+          "status_dado": "disponivel",
+          "valor_total": 48611689.51,
+          "beneficiarios": 74940,
+          "valor_medio_por_beneficiario": 648.67,
+          "variacao_beneficiarios_absoluta": 577
+        }
+      ],
+      "posicao_ranking": 17
+    },
+    {
+      "municipio": {
+        "codigo_ibge": "2800308",
+        "nome": "Aracaju",
+        "uf": "SE"
+      },
+      "indicadores": {
+        "status_dado": "disponivel",
+        "meses_solicitados": 3,
+        "meses_com_dados": 3,
+        "valor_total": 129602393.93,
+        "beneficiarios_media_mensal": 64546.33,
+        "valor_medio_por_beneficiario": 669.3
+      },
+      "meses": [
+        {
+          "mes": "2024-01",
+          "status_dado": "disponivel",
+          "valor_total": 43379491.4,
+          "beneficiarios": 64972,
+          "valor_medio_por_beneficiario": 667.66,
+          "variacao_beneficiarios_absoluta": null
+        },
+        {
+          "mes": "2024-02",
+          "status_dado": "disponivel",
+          "valor_total": 43173950.24,
+          "beneficiarios": 64430,
+          "valor_medio_por_beneficiario": 670.09,
+          "variacao_beneficiarios_absoluta": -542
+        },
+        {
+          "mes": "2024-03",
+          "status_dado": "disponivel",
+          "valor_total": 43048952.29,
+          "beneficiarios": 64237,
+          "valor_medio_por_beneficiario": 670.16,
+          "variacao_beneficiarios_absoluta": -193
+        }
+      ],
+      "posicao_ranking": 18
+    },
+    {
+      "municipio": {
+        "codigo_ibge": "1600303",
+        "nome": "Macapá",
+        "uf": "AP"
+      },
+      "indicadores": {
+        "status_dado": "disponivel",
+        "meses_solicitados": 3,
+        "meses_com_dados": 3,
+        "valor_total": 118047861.85,
+        "beneficiarios_media_mensal": 56297.33,
+        "valor_medio_por_beneficiario": 698.95
+      },
+      "meses": [
+        {
+          "mes": "2024-01",
+          "status_dado": "disponivel",
+          "valor_total": 39087702.33,
+          "beneficiarios": 56433,
+          "valor_medio_por_beneficiario": 692.64,
+          "variacao_beneficiarios_absoluta": null
+        },
+        {
+          "mes": "2024-02",
+          "status_dado": "disponivel",
+          "valor_total": 39554089.6,
+          "beneficiarios": 56598,
+          "valor_medio_por_beneficiario": 698.86,
+          "variacao_beneficiarios_absoluta": 165
+        },
+        {
+          "mes": "2024-03",
+          "status_dado": "disponivel",
+          "valor_total": 39406069.92,
+          "beneficiarios": 55861,
+          "valor_medio_por_beneficiario": 705.43,
+          "variacao_beneficiarios_absoluta": -737
+        }
+      ],
+      "posicao_ranking": 19
+    },
+    {
+      "municipio": {
+        "codigo_ibge": "5002704",
+        "nome": "Campo Grande",
+        "uf": "MS"
+      },
+      "indicadores": {
+        "status_dado": "disponivel",
+        "meses_solicitados": 3,
+        "meses_com_dados": 3,
+        "valor_total": 110735741.53,
+        "beneficiarios_media_mensal": 56150.0,
+        "valor_medio_por_beneficiario": 657.38
+      },
+      "meses": [
+        {
+          "mes": "2024-01",
+          "status_dado": "disponivel",
+          "valor_total": 37177888.31,
+          "beneficiarios": 56540,
+          "valor_medio_por_beneficiario": 657.55,
+          "variacao_beneficiarios_absoluta": null
+        },
+        {
+          "mes": "2024-02",
+          "status_dado": "disponivel",
+          "valor_total": 37039076.28,
+          "beneficiarios": 56132,
+          "valor_medio_por_beneficiario": 659.86,
+          "variacao_beneficiarios_absoluta": -408
+        },
+        {
+          "mes": "2024-03",
+          "status_dado": "disponivel",
+          "valor_total": 36518776.94,
+          "beneficiarios": 55778,
+          "valor_medio_por_beneficiario": 654.72,
+          "variacao_beneficiarios_absoluta": -354
+        }
+      ],
+      "posicao_ranking": 20
+    },
+    {
+      "municipio": {
+        "codigo_ibge": "1100205",
+        "nome": "Porto Velho",
+        "uf": "RO"
+      },
+      "indicadores": {
+        "status_dado": "disponivel",
+        "meses_solicitados": 3,
+        "meses_com_dados": 3,
+        "valor_total": 98083897.3,
+        "beneficiarios_media_mensal": 49193.67,
+        "valor_medio_por_beneficiario": 664.61
+      },
+      "meses": [
+        {
+          "mes": "2024-01",
+          "status_dado": "disponivel",
+          "valor_total": 32523697.29,
+          "beneficiarios": 48923,
+          "valor_medio_por_beneficiario": 664.79,
+          "variacao_beneficiarios_absoluta": null
+        },
+        {
+          "mes": "2024-02",
+          "status_dado": "disponivel",
+          "valor_total": 32785202.19,
+          "beneficiarios": 49178,
+          "valor_medio_por_beneficiario": 666.66,
+          "variacao_beneficiarios_absoluta": 255
+        },
+        {
+          "mes": "2024-03",
+          "status_dado": "disponivel",
+          "valor_total": 32774997.82,
+          "beneficiarios": 49480,
+          "valor_medio_por_beneficiario": 662.39,
+          "variacao_beneficiarios_absoluta": 302
+        }
+      ],
+      "posicao_ranking": 21
+    },
+    {
+      "municipio": {
+        "codigo_ibge": "5103403",
+        "nome": "Cuiabá",
+        "uf": "MT"
+      },
+      "indicadores": {
+        "status_dado": "disponivel",
+        "meses_solicitados": 3,
+        "meses_com_dados": 3,
+        "valor_total": 94688918.02,
+        "beneficiarios_media_mensal": 47501.33,
+        "valor_medio_por_beneficiario": 664.46
+      },
+      "meses": [
+        {
+          "mes": "2024-01",
+          "status_dado": "disponivel",
+          "valor_total": 31592429.97,
+          "beneficiarios": 47598,
+          "valor_medio_por_beneficiario": 663.73,
+          "variacao_beneficiarios_absoluta": null
+        },
+        {
+          "mes": "2024-02",
+          "status_dado": "disponivel",
+          "valor_total": 31743872.57,
+          "beneficiarios": 47470,
+          "valor_medio_por_beneficiario": 668.71,
+          "variacao_beneficiarios_absoluta": -128
+        },
+        {
+          "mes": "2024-03",
+          "status_dado": "disponivel",
+          "valor_total": 31352615.48,
+          "beneficiarios": 47436,
+          "valor_medio_por_beneficiario": 660.95,
+          "variacao_beneficiarios_absoluta": -34
+        }
+      ],
+      "posicao_ranking": 22
+    },
+    {
+      "municipio": {
+        "codigo_ibge": "1200401",
+        "nome": "Rio Branco",
+        "uf": "AC"
+      },
+      "indicadores": {
+        "status_dado": "disponivel",
+        "meses_solicitados": 3,
+        "meses_com_dados": 3,
+        "valor_total": 90933229.45,
+        "beneficiarios_media_mensal": 44687.0,
+        "valor_medio_por_beneficiario": 678.3
+      },
+      "meses": [
+        {
+          "mes": "2024-01",
+          "status_dado": "disponivel",
+          "valor_total": 30283995.36,
+          "beneficiarios": 44824,
+          "valor_medio_por_beneficiario": 675.62,
+          "variacao_beneficiarios_absoluta": null
+        },
+        {
+          "mes": "2024-02",
+          "status_dado": "disponivel",
+          "valor_total": 30169595.33,
+          "beneficiarios": 44529,
+          "valor_medio_por_beneficiario": 677.53,
+          "variacao_beneficiarios_absoluta": -295
+        },
+        {
+          "mes": "2024-03",
+          "status_dado": "disponivel",
+          "valor_total": 30479638.76,
+          "beneficiarios": 44708,
+          "valor_medio_por_beneficiario": 681.75,
+          "variacao_beneficiarios_absoluta": 179
+        }
+      ],
+      "posicao_ranking": 23
+    },
+    {
+      "municipio": {
+        "codigo_ibge": "1721000",
+        "nome": "Palmas",
+        "uf": "TO"
+      },
+      "indicadores": {
+        "status_dado": "disponivel",
+        "meses_solicitados": 3,
+        "meses_com_dados": 3,
+        "valor_total": 39060933.19,
+        "beneficiarios_media_mensal": 19725.33,
+        "valor_medio_por_beneficiario": 660.08
+      },
+      "meses": [
+        {
+          "mes": "2024-01",
+          "status_dado": "disponivel",
+          "valor_total": 12945002.08,
+          "beneficiarios": 19726,
+          "valor_medio_por_beneficiario": 656.24,
+          "variacao_beneficiarios_absoluta": null
+        },
+        {
+          "mes": "2024-02",
+          "status_dado": "disponivel",
+          "valor_total": 13095608.53,
+          "beneficiarios": 19772,
+          "valor_medio_por_beneficiario": 662.33,
+          "variacao_beneficiarios_absoluta": 46
+        },
+        {
+          "mes": "2024-03",
+          "status_dado": "disponivel",
+          "valor_total": 13020322.58,
+          "beneficiarios": 19678,
+          "valor_medio_por_beneficiario": 661.67,
+          "variacao_beneficiarios_absoluta": -94
+        }
+      ],
+      "posicao_ranking": 24
+    },
+    {
+      "municipio": {
+        "codigo_ibge": "3205309",
+        "nome": "Vitória",
+        "uf": "ES"
+      },
+      "indicadores": {
+        "status_dado": "disponivel",
+        "meses_solicitados": 3,
+        "meses_com_dados": 3,
+        "valor_total": 38298156.27,
+        "beneficiarios_media_mensal": 19803.67,
+        "valor_medio_por_beneficiario": 644.63
+      },
+      "meses": [
+        {
+          "mes": "2024-01",
+          "status_dado": "disponivel",
+          "valor_total": 12791818.04,
+          "beneficiarios": 19837,
+          "valor_medio_por_beneficiario": 644.85,
+          "variacao_beneficiarios_absoluta": null
+        },
+        {
+          "mes": "2024-02",
+          "status_dado": "disponivel",
+          "valor_total": 12720395.85,
+          "beneficiarios": 19776,
+          "valor_medio_por_beneficiario": 643.22,
+          "variacao_beneficiarios_absoluta": -61
+        },
+        {
+          "mes": "2024-03",
+          "status_dado": "disponivel",
+          "valor_total": 12785942.38,
+          "beneficiarios": 19798,
+          "valor_medio_por_beneficiario": 645.82,
+          "variacao_beneficiarios_absoluta": 22
+        }
+      ],
+      "posicao_ranking": 25
+    },
+    {
+      "municipio": {
+        "codigo_ibge": "4205407",
+        "nome": "Florianópolis",
+        "uf": "SC"
+      },
+      "indicadores": {
+        "status_dado": "disponivel",
+        "meses_solicitados": 3,
+        "meses_com_dados": 3,
+        "valor_total": 33275555.5,
+        "beneficiarios_media_mensal": 17131.67,
+        "valor_medio_por_beneficiario": 647.45
+      },
+      "meses": [
+        {
+          "mes": "2024-01",
+          "status_dado": "disponivel",
+          "valor_total": 11094105.44,
+          "beneficiarios": 17135,
+          "valor_medio_por_beneficiario": 647.45,
+          "variacao_beneficiarios_absoluta": null
+        },
+        {
+          "mes": "2024-02",
+          "status_dado": "disponivel",
+          "valor_total": 11225757.0,
+          "beneficiarios": 17235,
+          "valor_medio_por_beneficiario": 651.33,
+          "variacao_beneficiarios_absoluta": 100
+        },
+        {
+          "mes": "2024-03",
+          "status_dado": "disponivel",
+          "valor_total": 10955693.06,
+          "beneficiarios": 17025,
+          "valor_medio_por_beneficiario": 643.51,
+          "variacao_beneficiarios_absoluta": -210
+        }
+      ],
+      "posicao_ranking": 26
+    },
+    {
+      "municipio": {
+        "codigo_ibge": "1400100",
+        "nome": "Boa Vista",
+        "uf": "RR"
+      },
+      "indicadores": {
+        "status_dado": "sem_dados",
+        "meses_solicitados": 3,
+        "meses_com_dados": 0,
+        "valor_total": null,
+        "beneficiarios_media_mensal": null,
+        "valor_medio_por_beneficiario": null
+      },
+      "meses": [
+        {
+          "mes": "2024-01",
+          "status_dado": "sem_dados",
+          "valor_total": null,
+          "beneficiarios": null,
+          "valor_medio_por_beneficiario": null,
+          "variacao_beneficiarios_absoluta": null
+        },
+        {
+          "mes": "2024-02",
+          "status_dado": "sem_dados",
+          "valor_total": null,
+          "beneficiarios": null,
+          "valor_medio_por_beneficiario": null,
+          "variacao_beneficiarios_absoluta": null
+        },
+        {
+          "mes": "2024-03",
+          "status_dado": "sem_dados",
+          "valor_total": null,
+          "beneficiarios": null,
+          "valor_medio_por_beneficiario": null,
+          "variacao_beneficiarios_absoluta": null
+        }
+      ],
+      "posicao_ranking": null
+    }
+  ]
+}

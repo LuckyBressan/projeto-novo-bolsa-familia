@@ -1,0 +1,190 @@
+{
+  "fonte": "mock",
+  "periodo": {
+    "ano": 2024,
+    "mes_inicio": 1,
+    "mes_fim": 3,
+    "meses": [
+      "2024-01",
+      "2024-02",
+      "2024-03"
+    ]
+  },
+  "metrica_ranking": "valor_medio_por_beneficiario",
+  "filtro_capitais": [
+    "SC",
+    "PR",
+    "RS"
+  ],
+  "total_capitais": 3,
+  "referencia": {
+    "municipio": {
+      "codigo_ibge": "4214805",
+      "nome": "Rio do Sul",
+      "uf": "SC"
+    },
+    "indicadores": {
+      "status_dado": "disponivel",
+      "meses_solicitados": 3,
+      "meses_com_dados": 3,
+      "valor_total": 3042086.65,
+      "beneficiarios_media_mensal": 1582.0,
+      "valor_medio_por_beneficiario": 640.98
+    },
+    "meses": [
+      {
+        "mes": "2024-01",
+        "status_dado": "disponivel",
+        "valor_total": 1013272.42,
+        "beneficiarios": 1574,
+        "valor_medio_por_beneficiario": 643.76,
+        "variacao_beneficiarios_absoluta": null
+      },
+      {
+        "mes": "2024-02",
+        "status_dado": "disponivel",
+        "valor_total": 1023980.19,
+        "beneficiarios": 1590,
+        "valor_medio_por_beneficiario": 644.01,
+        "variacao_beneficiarios_absoluta": 16
+      },
+      {
+        "mes": "2024-03",
+        "status_dado": "disponivel",
+        "valor_total": 1004834.04,
+        "beneficiarios": 1582,
+        "valor_medio_por_beneficiario": 635.17,
+        "variacao_beneficiarios_absoluta": -8
+      }
+    ],
+    "posicao_entre_capitais": 4
+  },
+  "capitais": [
+    {
+      "municipio": {
+        "codigo_ibge": "4314902",
+        "nome": "Porto Alegre",
+        "uf": "RS"
+      },
+      "indicadores": {
+        "status_dado": "disponivel",
+        "meses_solicitados": 3,
+        "meses_com_dados": 3,
+        "valor_total": 183952797.71,
+        "beneficiarios_media_mensal": 94155.0,
+        "valor_medio_por_beneficiario": 651.24
+      },
+      "meses": [
+        {
+          "mes": "2024-01",
+          "status_dado": "disponivel",
+          "valor_total": 61669888.76,
+          "beneficiarios": 93790,
+          "valor_medio_por_beneficiario": 657.53,
+          "variacao_beneficiarios_absoluta": null
+        },
+        {
+          "mes": "2024-02",
+          "status_dado": "disponivel",
+          "valor_total": 60920771.66,
+          "beneficiarios": 93997,
+          "valor_medio_por_beneficiario": 648.11,
+          "variacao_beneficiarios_absoluta": 207
+        },
+        {
+          "mes": "2024-03",
+          "status_dado": "disponivel",
+          "valor_total": 61362137.29,
+          "beneficiarios": 94678,
+          "valor_medio_por_beneficiario": 648.11,
+          "variacao_beneficiarios_absoluta": 681
+        }
+      ],
+      "posicao_ranking": 1
+    },
+    {
+      "municipio": {
+        "codigo_ibge": "4106902",
+        "nome": "Curitiba",
+        "uf": "PR"
+      },
+      "indicadores": {
+        "status_dado": "disponivel",
+        "meses_solicitados": 3,
+        "meses_com_dados": 3,
+        "valor_total": 145970032.28,
+        "beneficiarios_media_mensal": 74915.0,
+        "valor_medio_por_beneficiario": 649.49
+      },
+      "meses": [
+        {
+          "mes": "2024-01",
+          "status_dado": "disponivel",
+          "valor_total": 49232453.37,
+          "beneficiarios": 75442,
+          "valor_medio_por_beneficiario": 652.59,
+          "variacao_beneficiarios_absoluta": null
+        },
+        {
+          "mes": "2024-02",
+          "status_dado": "disponivel",
+          "valor_total": 48125889.4,
+          "beneficiarios": 74363,
+          "valor_medio_por_beneficiario": 647.18,
+          "variacao_beneficiarios_absoluta": -1079
+        },
+        {
+          "mes": "2024-03",
+          "status_dado": "disponivel",
+          "valor_total": 48611689.51,
+          "beneficiarios": 74940,
+          "valor_medio_por_beneficiario": 648.67,
+          "variacao_beneficiarios_absoluta": 577
+        }
+      ],
+      "posicao_ranking": 2
+    },
+    {
+      "municipio": {
+        "codigo_ibge": "4205407",
+        "nome": "Florianópolis",
+        "uf": "SC"
+      },
+      "indicadores": {
+        "status_dado": "disponivel",
+        "meses_solicitados": 3,
+        "meses_com_dados": 3,
+        "valor_total": 33275555.5,
+        "beneficiarios_media_mensal": 17131.67,
+        "valor_medio_por_beneficiario": 647.45
+      },
+      "meses": [
+        {
+          "mes": "2024-01",
+          "status_dado": "disponivel",
+          "valor_total": 11094105.44,
+          "beneficiarios": 17135,
+          "valor_medio_por_beneficiario": 647.45,
+          "variacao_beneficiarios_absoluta": null
+        },
+        {
+          "mes": "2024-02",
+          "status_dado": "disponivel",
+          "valor_total": 11225757.0,
+          "beneficiarios": 17235,
+          "valor_medio_por_beneficiario": 651.33,
+          "variacao_beneficiarios_absoluta": 100
+        },
+        {
+          "mes": "2024-03",
+          "status_dado": "disponivel",
+          "valor_total": 10955693.06,
+          "beneficiarios": 17025,
+          "valor_medio_por_beneficiario": 643.51,
+          "variacao_beneficiarios_absoluta": -210
+        }
+      ],
+      "posicao_ranking": 3
+    }
+  ]
+}

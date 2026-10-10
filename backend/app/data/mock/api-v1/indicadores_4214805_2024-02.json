@@ -1,0 +1,24 @@
+{
+  "fonte": "mock",
+  "municipio": {
+    "codigo_ibge": "4214805",
+    "nome": "Rio do Sul",
+    "uf": "SC"
+  },
+  "periodo": {
+    "ano": 2024,
+    "mes_inicio": 2,
+    "mes_fim": 2,
+    "meses": [
+      "2024-02"
+    ]
+  },
+  "indicadores": {
+    "status_dado": "disponivel",
+    "meses_solicitados": 1,
+    "meses_com_dados": 1,
+    "valor_total": 1023980.19,
+    "beneficiarios_media_mensal": 1590.0,
+    "valor_medio_por_beneficiario": 644.01
+  }
+}

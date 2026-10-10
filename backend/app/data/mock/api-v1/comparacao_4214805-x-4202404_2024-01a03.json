@@ -1,0 +1,45 @@
+{
+  "fonte": "mock",
+  "periodo": {
+    "ano": 2024,
+    "mes_inicio": 1,
+    "mes_fim": 3,
+    "meses": [
+      "2024-01",
+      "2024-02",
+      "2024-03"
+    ]
+  },
+  "municipios": [
+    {
+      "municipio": {
+        "codigo_ibge": "4214805",
+        "nome": "Rio do Sul",
+        "uf": "SC"
+      },
+      "indicadores": {
+        "status_dado": "disponivel",
+        "meses_solicitados": 3,
+        "meses_com_dados": 3,
+        "valor_total": 3042086.65,
+        "beneficiarios_media_mensal": 1582.0,
+        "valor_medio_por_beneficiario": 640.98
+      }
+    },
+    {
+      "municipio": {
+        "codigo_ibge": "4202404",
+        "nome": "Blumenau",
+        "uf": "SC"
+      },
+      "indicadores": {
+        "status_dado": "disponivel",
+        "meses_solicitados": 3,
+        "meses_com_dados": 3,
+        "valor_total": 11257355.28,
+        "beneficiarios_media_mensal": 5789.67,
+        "valor_medio_por_beneficiario": 648.13
+      }
+    }
+  ]
+}

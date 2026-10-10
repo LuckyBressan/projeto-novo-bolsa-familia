@@ -1,0 +1,10 @@
+{
+  "erro": {
+    "codigo": "PERIODO_INVALIDO",
+    "mensagem": "O intervalo deve ter no máximo 3 meses, dentro do mesmo ano.",
+    "detalhes": {
+      "max_meses_intervalo": 3
+    },
+    "correlacao_id": "exemplo-0000"
+  }
+}

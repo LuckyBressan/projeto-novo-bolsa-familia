@@ -1,0 +1,102 @@
+[
+  {
+    "rota": "/api/v1/health",
+    "http_status": 200,
+    "arquivo": "health.json"
+  },
+  {
+    "rota": "/api/v1/periodos",
+    "http_status": 200,
+    "arquivo": "periodos.json"
+  },
+  {
+    "rota": "/api/v1/estados",
+    "http_status": 200,
+    "arquivo": "estados.json"
+  },
+  {
+    "rota": "/api/v1/municipios?uf=SC",
+    "http_status": 200,
+    "arquivo": "municipios_uf-SC.json"
+  },
+  {
+    "rota": "/api/v1/municipios?uf=SC&busca=blu",
+    "http_status": 200,
+    "arquivo": "municipios_uf-SC_busca-blu.json"
+  },
+  {
+    "rota": "/api/v1/municipios/4214805/indicadores?ano=2024&mes_inicio=1&mes_fim=3",
+    "http_status": 200,
+    "arquivo": "indicadores_4214805_2024-01a03.json"
+  },
+  {
+    "rota": "/api/v1/municipios/4214805/indicadores?ano=2024&mes_inicio=2&mes_fim=2",
+    "http_status": 200,
+    "arquivo": "indicadores_4214805_2024-02.json"
+  },
+  {
+    "rota": "/api/v1/comparacoes/municipios?codigo_ibge_a=4214805&codigo_ibge_b=4202404&ano=2024&mes_inicio=1&mes_fim=3",
+    "http_status": 200,
+    "arquivo": "comparacao_4214805-x-4202404_2024-01a03.json"
+  },
+  {
+    "rota": "/api/v1/comparacoes/municipios?codigo_ibge_a=4202404&codigo_ibge_b=4209102&ano=2023&mes_inicio=10&mes_fim=12",
+    "http_status": 200,
+    "arquivo": "comparacao_4202404-x-4209102_2023-10a12_parcial.json"
+  },
+  {
+    "rota": "/api/v1/comparacoes/municipios?codigo_ibge_a=4209102&codigo_ibge_b=4214805&ano=2024&mes_inicio=10&mes_fim=12",
+    "http_status": 200,
+    "arquivo": "comparacao_4209102-x-4214805_2024-10a12_falha-fonte.json"
+  },
+  {
+    "rota": "/api/v1/evolucao-mensal?codigo_ibge_a=4214805&codigo_ibge_b=4202404&ano=2024&mes_inicio=1&mes_fim=3",
+    "http_status": 200,
+    "arquivo": "evolucao_4214805-x-4202404_2024-01a03.json"
+  },
+  {
+    "rota": "/api/v1/evolucao-mensal?codigo_ibge_a=4202404&codigo_ibge_b=4209102&ano=2023&mes_inicio=10&mes_fim=12",
+    "http_status": 200,
+    "arquivo": "evolucao_4202404-x-4209102_2023-10a12_lacuna.json"
+  },
+  {
+    "rota": "/api/v1/capitais/comparacao?codigo_ibge_referencia=4214805&ano=2024&mes_inicio=1&mes_fim=3",
+    "http_status": 200,
+    "arquivo": "capitais_ref-4214805_2024-01a03_todas.json"
+  },
+  {
+    "rota": "/api/v1/capitais/comparacao?codigo_ibge_referencia=4214805&ano=2024&mes_inicio=1&mes_fim=3&capitais=SC,PR,RS&metrica=valor_medio_por_beneficiario",
+    "http_status": 200,
+    "arquivo": "capitais_ref-4214805_2024-01a03_SC-PR-RS_valor-medio.json"
+  },
+  {
+    "rota": "/api/v1/diagnostico/consumo",
+    "http_status": 200,
+    "arquivo": "diagnostico_consumo.json"
+  },
+  {
+    "rota": "/api/v1/municipios/4214805/indicadores?ano=2023&mes_inicio=1&mes_fim=2",
+    "http_status": 422,
+    "arquivo": "erro_periodo-fora-do-intervalo.json"
+  },
+  {
+    "rota": "/api/v1/evolucao-mensal?codigo_ibge_a=4214805&codigo_ibge_b=4202404&ano=2024&mes_inicio=1&mes_fim=6",
+    "http_status": 422,
+    "arquivo": "erro_intervalo-maior-que-3-meses.json"
+  },
+  {
+    "rota": "/api/v1/municipios/9999999/indicadores?ano=2024&mes_inicio=1&mes_fim=1",
+    "http_status": 404,
+    "arquivo": "erro_municipio-invalido.json"
+  },
+  {
+    "rota": "/api/v1/municipios?uf=XX",
+    "http_status": 422,
+    "arquivo": "erro_estado-invalido.json"
+  },
+  {
+    "rota": "/api/v1/municipios/4209102/indicadores?ano=2024&mes_inicio=12&mes_fim=12",
+    "http_status": 503,
+    "arquivo": "erro_fonte-indisponivel.json"
+  }
+]

@@ -1,0 +1,25 @@
+{
+  "items": [
+    {
+      "codigo_ibge": "4202404",
+      "nome": "Blumenau",
+      "uf": "SC"
+    },
+    {
+      "codigo_ibge": "4205407",
+      "nome": "Florianópolis",
+      "uf": "SC"
+    },
+    {
+      "codigo_ibge": "4209102",
+      "nome": "Joinville",
+      "uf": "SC"
+    },
+    {
+      "codigo_ibge": "4214805",
+      "nome": "Rio do Sul",
+      "uf": "SC"
+    }
+  ],
+  "total": 4
+}

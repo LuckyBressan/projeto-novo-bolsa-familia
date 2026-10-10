@@ -1,0 +1,45 @@
+{
+  "fonte": "mock",
+  "periodo": {
+    "ano": 2024,
+    "mes_inicio": 10,
+    "mes_fim": 12,
+    "meses": [
+      "2024-10",
+      "2024-11",
+      "2024-12"
+    ]
+  },
+  "municipios": [
+    {
+      "municipio": {
+        "codigo_ibge": "4209102",
+        "nome": "Joinville",
+        "uf": "SC"
+      },
+      "indicadores": {
+        "status_dado": "fonte_indisponivel",
+        "meses_solicitados": 3,
+        "meses_com_dados": null,
+        "valor_total": null,
+        "beneficiarios_media_mensal": null,
+        "valor_medio_por_beneficiario": null
+      }
+    },
+    {
+      "municipio": {
+        "codigo_ibge": "4214805",
+        "nome": "Rio do Sul",
+        "uf": "SC"
+      },
+      "indicadores": {
+        "status_dado": "disponivel",
+        "meses_solicitados": 3,
+        "meses_com_dados": 3,
+        "valor_total": 2929091.74,
+        "beneficiarios_media_mensal": 1530.0,
+        "valor_medio_por_beneficiario": 638.15
+      }
+    }
+  ]
+}

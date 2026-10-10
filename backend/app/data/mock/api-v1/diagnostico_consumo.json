@@ -1,0 +1,14 @@
+{
+  "modo_mock": true,
+  "limite_rpm_configurado": 150,
+  "chamadas_ultimo_minuto": 87,
+  "chamadas_desde_inicio": 412,
+  "chamadas_bloqueadas_pelo_limitador": 0,
+  "cache": {
+    "itens": 96,
+    "hits": 655,
+    "misses": 412,
+    "ttl_segundos": 3600
+  },
+  "iniciado_em": "2026-10-09T08:00:00-03:00"
+}

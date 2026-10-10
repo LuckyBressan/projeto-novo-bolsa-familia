@@ -1,0 +1,81 @@
+{
+  "fonte": "mock",
+  "periodo": {
+    "ano": 2023,
+    "mes_inicio": 10,
+    "mes_fim": 12,
+    "meses": [
+      "2023-10",
+      "2023-11",
+      "2023-12"
+    ]
+  },
+  "series": [
+    {
+      "municipio": {
+        "codigo_ibge": "4202404",
+        "nome": "Blumenau",
+        "uf": "SC"
+      },
+      "meses": [
+        {
+          "mes": "2023-10",
+          "status_dado": "disponivel",
+          "valor_total": 3683071.26,
+          "beneficiarios": 5736,
+          "valor_medio_por_beneficiario": 642.1,
+          "variacao_beneficiarios_absoluta": null
+        },
+        {
+          "mes": "2023-11",
+          "status_dado": "sem_dados",
+          "valor_total": null,
+          "beneficiarios": null,
+          "valor_medio_por_beneficiario": null,
+          "variacao_beneficiarios_absoluta": null
+        },
+        {
+          "mes": "2023-12",
+          "status_dado": "disponivel",
+          "valor_total": 3747450.0,
+          "beneficiarios": 5810,
+          "valor_medio_por_beneficiario": 645.0,
+          "variacao_beneficiarios_absoluta": null
+        }
+      ]
+    },
+    {
+      "municipio": {
+        "codigo_ibge": "4209102",
+        "nome": "Joinville",
+        "uf": "SC"
+      },
+      "meses": [
+        {
+          "mes": "2023-10",
+          "status_dado": "disponivel",
+          "valor_total": 6821228.7,
+          "beneficiarios": 10530,
+          "valor_medio_por_beneficiario": 647.79,
+          "variacao_beneficiarios_absoluta": null
+        },
+        {
+          "mes": "2023-11",
+          "status_dado": "disponivel",
+          "valor_total": 6733837.44,
+          "beneficiarios": 10457,
+          "valor_medio_por_beneficiario": 643.96,
+          "variacao_beneficiarios_absoluta": -73
+        },
+        {
+          "mes": "2023-12",
+          "status_dado": "disponivel",
+          "valor_total": 6817226.91,
+          "beneficiarios": 10411,
+          "valor_medio_por_beneficiario": 654.81,
+          "variacao_beneficiarios_absoluta": -46
+        }
+      ]
+    }
+  ]
+}

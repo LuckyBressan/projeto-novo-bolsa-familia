@@ -1,0 +1,27 @@
+{
+  "observacao": "Valores fictícios. Combinações sem registro retornam lista vazia; falhas retornam HTTP 503.",
+  "sem_registro": [
+    {
+      "codigoIbge": "1400100",
+      "mes": "2024-01"
+    },
+    {
+      "codigoIbge": "1400100",
+      "mes": "2024-02"
+    },
+    {
+      "codigoIbge": "1400100",
+      "mes": "2024-03"
+    },
+    {
+      "codigoIbge": "4202404",
+      "mes": "2023-11"
+    }
+  ],
+  "falha_fonte_http_503": [
+    {
+      "codigoIbge": "4209102",
+      "mes": "2024-12"
+    }
+  ]
+}

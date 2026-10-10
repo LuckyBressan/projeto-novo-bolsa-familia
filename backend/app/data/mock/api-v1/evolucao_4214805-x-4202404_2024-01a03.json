@@ -1,0 +1,81 @@
+{
+  "fonte": "mock",
+  "periodo": {
+    "ano": 2024,
+    "mes_inicio": 1,
+    "mes_fim": 3,
+    "meses": [
+      "2024-01",
+      "2024-02",
+      "2024-03"
+    ]
+  },
+  "series": [
+    {
+      "municipio": {
+        "codigo_ibge": "4214805",
+        "nome": "Rio do Sul",
+        "uf": "SC"
+      },
+      "meses": [
+        {
+          "mes": "2024-01",
+          "status_dado": "disponivel",
+          "valor_total": 1013272.42,
+          "beneficiarios": 1574,
+          "valor_medio_por_beneficiario": 643.76,
+          "variacao_beneficiarios_absoluta": null
+        },
+        {
+          "mes": "2024-02",
+          "status_dado": "disponivel",
+          "valor_total": 1023980.19,
+          "beneficiarios": 1590,
+          "valor_medio_por_beneficiario": 644.01,
+          "variacao_beneficiarios_absoluta": 16
+        },
+        {
+          "mes": "2024-03",
+          "status_dado": "disponivel",
+          "valor_total": 1004834.04,
+          "beneficiarios": 1582,
+          "valor_medio_por_beneficiario": 635.17,
+          "variacao_beneficiarios_absoluta": -8
+        }
+      ]
+    },
+    {
+      "municipio": {
+        "codigo_ibge": "4202404",
+        "nome": "Blumenau",
+        "uf": "SC"
+      },
+      "meses": [
+        {
+          "mes": "2024-01",
+          "status_dado": "disponivel",
+          "valor_total": 3756060.75,
+          "beneficiarios": 5780,
+          "valor_medio_por_beneficiario": 649.84,
+          "variacao_beneficiarios_absoluta": null
+        },
+        {
+          "mes": "2024-02",
+          "status_dado": "disponivel",
+          "valor_total": 3750773.04,
+          "beneficiarios": 5769,
+          "valor_medio_por_beneficiario": 650.16,
+          "variacao_beneficiarios_absoluta": -11
+        },
+        {
+          "mes": "2024-03",
+          "status_dado": "disponivel",
+          "valor_total": 3750521.49,
+          "beneficiarios": 5820,
+          "valor_medio_por_beneficiario": 644.42,
+          "variacao_beneficiarios_absoluta": 51
+        }
+      ]
+    }
+  ]
+}
