@@ -24,7 +24,7 @@ from pathlib import Path
 BASE = Path(__file__).resolve().parent
 
 PERIODO_MIN = (2023, 3)
-PERIODO_MAX = (2024, 12)
+PERIODO_MAX = (2026, 8)
 MAX_MESES_INTERVALO = 3
 LIMITE_RPM = 150
 FONTE_MOCK = "mock"
@@ -353,8 +353,9 @@ def montar_exemplos() -> list[tuple[str, int, str, dict]]:
         # ---- erros
         ("erro_periodo-fora-do-intervalo.json", 422,
          f"{q}/municipios/4214805/indicadores?ano=2023&mes_inicio=1&mes_fim=2",
-         erro("PERIODO_INVALIDO", "O período deve estar entre 2023-03 e 2024-12.",
-              {"periodo_min": "2023-03", "periodo_max": "2024-12"})),
+         erro("PERIODO_INVALIDO",
+              f"O período deve estar entre {mes_str(*PERIODO_MIN)} e {mes_str(*PERIODO_MAX)}.",
+              {"periodo_min": mes_str(*PERIODO_MIN), "periodo_max": mes_str(*PERIODO_MAX)})),
         ("erro_intervalo-maior-que-3-meses.json", 422,
          f"{q}/evolucao-mensal?codigo_ibge_a=4214805&codigo_ibge_b=4202404&ano=2024&mes_inicio=1&mes_fim=6",
          erro("PERIODO_INVALIDO", "O intervalo deve ter no máximo 3 meses, dentro do mesmo ano.",
@@ -373,7 +374,7 @@ def montar_exemplos() -> list[tuple[str, int, str, dict]]:
 
 def escrever(caminho: Path, obj) -> None:
     caminho.parent.mkdir(parents=True, exist_ok=True)
-    caminho.write_text(json.dumps(obj, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    caminho.write_text(json.dumps(obj, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n")
 
 
 def main() -> None:

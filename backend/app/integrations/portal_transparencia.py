@@ -76,7 +76,7 @@ class PortalClient:
             raise RespostaFonteInvalida() from erro
         if len(registros) > 1:
             logger.warning(
-                "Portal devolveu %s registros para codigoIbge=%s mes=%s; agregação pendente (decisão D02)",
+                "Portal devolveu %s registros para codigoIbge=%s mes=%s; serão somados (decisão D02)",
                 len(registros), codigo_ibge, mes,
             )
         return registros

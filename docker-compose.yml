@@ -18,7 +18,7 @@ services:
       MODO_MOCK: ${MODO_MOCK:-true}
       MOCK_DIR: ${MOCK_DIR:-app/data/mock}
       PERIODO_MIN: ${PERIODO_MIN:-2023-03}
-      PERIODO_MAX: ${PERIODO_MAX:-2024-12}
+      PERIODO_MAX: ${PERIODO_MAX:-2026-08}
       MAX_MESES_INTERVALO: ${MAX_MESES_INTERVALO:-3}
       PORTAL_LIMITE_RPM: ${PORTAL_LIMITE_RPM:-150}
       PORTAL_API_BASE_URL: ${PORTAL_API_BASE_URL:-https://api.portaldatransparencia.gov.br/api-de-dados}

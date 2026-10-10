@@ -1,10 +1,10 @@
 {
   "erro": {
     "codigo": "PERIODO_INVALIDO",
-    "mensagem": "O período deve estar entre 2023-03 e 2024-12.",
+    "mensagem": "O período deve estar entre 2023-03 e 2026-08.",
     "detalhes": {
       "periodo_min": "2023-03",
-      "periodo_max": "2024-12"
+      "periodo_max": "2026-08"
     },
     "correlacao_id": "exemplo-0000"
   }
