@@ -18,6 +18,7 @@ from __future__ import annotations
 
 import json
 import random
+import unicodedata
 from decimal import ROUND_HALF_UP, Decimal
 from pathlib import Path
 
@@ -99,6 +100,11 @@ FALHA_FONTE = {  # a fonte responde HTTP 503
 # --------------------------------------------------------------------------
 # Utilidades de período
 # --------------------------------------------------------------------------
+def chave_nome(nome: str) -> str:
+    """Ordem alfabética do português: ignora acentos e maiúsculas."""
+    return unicodedata.normalize("NFKD", nome).encode("ascii", "ignore").decode().casefold()
+
+
 def mes_str(ano: int, mes: int) -> str:
     return f"{ano:04d}-{mes:02d}"
 
@@ -238,11 +244,11 @@ def comparar_capitais(ref: str, ano: int, mi: int, mf: int, ufs: list[str] | Non
                          "meses": calcular_serie(cod, meses), "posicao_ranking": None})
     ranqueaveis = sorted(
         (e for e in entradas if e["indicadores"]["status_dado"] == "disponivel"),
-        key=lambda e: (-e["indicadores"][metrica], e["municipio"]["nome"]),
+        key=lambda e: (-e["indicadores"][metrica], chave_nome(e["municipio"]["nome"])),
     )
     for i, e in enumerate(ranqueaveis, start=1):
         e["posicao_ranking"] = i
-    nao_ranq = sorted((e for e in entradas if e["posicao_ranking"] is None), key=lambda e: e["municipio"]["nome"])
+    nao_ranq = sorted((e for e in entradas if e["posicao_ranking"] is None), key=lambda e: chave_nome(e["municipio"]["nome"]))
     ind_ref = calcular_indicadores(ref, meses)
     pos_ref = None
     if ind_ref["status_dado"] == "disponivel":
@@ -306,10 +312,10 @@ def montar_exemplos() -> list[tuple[str, int, str, dict]]:
          {"periodo_min": mes_str(*PERIODO_MIN), "periodo_max": mes_str(*PERIODO_MAX),
           "max_meses_intervalo": MAX_MESES_INTERVALO, "anos": anos_disponiveis()}),
         ("estados.json", 200, f"{q}/estados",
-         {"items": [{"codigo_uf": c, "uf": uf, "nome": n} for c, uf, n in sorted(ESTADOS, key=lambda e: e[2])],
+         {"items": [{"codigo_uf": c, "uf": uf, "nome": n} for c, uf, n in sorted(ESTADOS, key=lambda e: chave_nome(e[2]))],
           "total": len(ESTADOS)}),
     ]
-    sc = sorted((m for m in MUNICIPIOS if m[2] == "SC"), key=lambda m: m[1])
+    sc = sorted((m for m in MUNICIPIOS if m[2] == "SC"), key=lambda m: chave_nome(m[1]))
     ex.append(("municipios_uf-SC.json", 200, f"{q}/municipios?uf=SC",
                {"items": [obj_municipio(m[0]) for m in sc], "total": len(sc)}))
     blu = [m for m in sc if m[1].lower().startswith("blu")]

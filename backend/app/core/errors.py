@@ -26,19 +26,41 @@ class ParametroInvalido(ErroApi):
     mensagem = "Parâmetro ausente ou com formato inválido."
 
 
-class FonteIndisponivel(ErroApi):
+class PeriodoInvalido(ErroApi):
+    codigo = "PERIODO_INVALIDO"
+    http_status = 422
+    mensagem = "Período inválido."
+
+
+class EstadoInvalido(ErroApi):
+    codigo = "ESTADO_INVALIDO"
+    http_status = 422
+    mensagem = "UF inexistente."
+
+
+class MunicipioInvalido(ErroApi):
+    codigo = "MUNICIPIO_INVALIDO"
+    http_status = 404
+    mensagem = "Município não encontrado no catálogo."
+
+
+class ErroFonte(ErroApi):
+    """Falha ao obter dados do Portal; nas rotas com várias entradas vira fonte_indisponivel."""
+
+
+class FonteIndisponivel(ErroFonte):
     codigo = "FONTE_INDISPONIVEL"
     http_status = 503
-    mensagem = "Não foi possível consultar o Portal da Transparência no momento."
+    mensagem = "Não foi possível consultar os dados oficiais neste momento."
 
 
-class RespostaFonteInvalida(ErroApi):
+class RespostaFonteInvalida(ErroFonte):
     codigo = "RESPOSTA_FONTE_INVALIDA"
     http_status = 502
     mensagem = "O Portal da Transparência respondeu em um formato inesperado."
 
 
-class LimiteFonteExcedido(ErroApi):
+class LimiteFonteExcedido(ErroFonte):
     codigo = "LIMITE_FONTE_EXCEDIDO"
     http_status = 503
     mensagem = "O Portal da Transparência recusou a consulta por excesso de requisições. Tente novamente em instantes."
@@ -47,17 +69,11 @@ class LimiteFonteExcedido(ErroApi):
 def resposta_erro(erro: ErroApi) -> JSONResponse:
     correlacao_id = uuid.uuid4().hex
     logger.warning("Erro %s (%s) correlacao_id=%s", erro.codigo, erro.mensagem, correlacao_id)
-    return JSONResponse(
-        {
-            "erro": {
-                "codigo": erro.codigo,
-                "mensagem": erro.mensagem,
-                "detalhes": erro.detalhes,
-                "correlacao_id": correlacao_id,
-            }
-        },
-        status_code=erro.http_status,
-    )
+    corpo: dict[str, Any] = {"codigo": erro.codigo, "mensagem": erro.mensagem}
+    if erro.detalhes:
+        corpo["detalhes"] = erro.detalhes
+    corpo["correlacao_id"] = correlacao_id
+    return JSONResponse({"erro": corpo}, status_code=erro.http_status)
 
 
 def registrar_tratadores(app: FastAPI) -> None:

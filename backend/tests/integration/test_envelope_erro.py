@@ -42,8 +42,8 @@ def test_erro_aplicacao_responde_envelope_com_status_do_erro():
     assert resposta.status_code == 503
     erro = resposta.json()["erro"]
     assert erro["codigo"] == "FONTE_INDISPONIVEL"
-    assert erro["mensagem"] == FonteIndisponivel.mensagem
-    assert erro["detalhes"] == {}
+    assert erro["mensagem"] == "Não foi possível consultar os dados oficiais neste momento."
+    assert "detalhes" not in erro
     assert erro["correlacao_id"]
 
 

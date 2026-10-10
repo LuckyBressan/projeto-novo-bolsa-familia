@@ -1,11 +1,11 @@
-from fastapi import APIRouter, Request
-from fastapi.responses import JSONResponse
+from fastapi import APIRouter
 
-from app.api.contrato_mock import ContratoMockDep
+from app.api.dependencias import CatalogoDep
+from app.schemas.municipio import ListaEstadosResposta
 
 router = APIRouter(tags=["catálogos"])
 
 
-@router.get("/estados", summary="As 27 UFs, ordenadas por nome")
-def estados(request: Request, contrato: ContratoMockDep) -> JSONResponse:
-    return contrato.responder(request)
+@router.get("/estados", response_model=ListaEstadosResposta, summary="As 27 UFs, ordenadas por nome")
+def estados(catalogo: CatalogoDep) -> ListaEstadosResposta:
+    return ListaEstadosResposta.criar(catalogo.estados())

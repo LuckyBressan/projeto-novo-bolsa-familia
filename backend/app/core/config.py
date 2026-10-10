@@ -8,6 +8,7 @@ from pydantic_settings import BaseSettings
 class Settings(BaseSettings):
     log_level: str = "INFO"
     modo_mock: bool = True
+    dados_dir: Path = Path(__file__).resolve().parents[1] / "data"
     mock_dir: Path = Path(__file__).resolve().parents[1] / "data" / "mock"
     portal_api_base_url: str = "https://api.portaldatransparencia.gov.br/api-de-dados"
     portal_transparencia_api_key: SecretStr | None = None
@@ -16,6 +17,9 @@ class Settings(BaseSettings):
     portal_limite_rpm: int = 150
     cache_ttl_seconds: int = 3600
     cors_origins: str = "http://localhost:5173"
+    periodo_min: str = "2023-03"
+    periodo_max: str = "2026-08"
+    max_meses_intervalo: int = 3
 
     @property
     def lista_cors_origins(self) -> list[str]:

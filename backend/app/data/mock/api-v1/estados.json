@@ -66,9 +66,9 @@
       "nome": "Minas Gerais"
     },
     {
-      "codigo_uf": "41",
-      "uf": "PR",
-      "nome": "Paraná"
+      "codigo_uf": "15",
+      "uf": "PA",
+      "nome": "Pará"
     },
     {
       "codigo_uf": "25",
@@ -76,9 +76,9 @@
       "nome": "Paraíba"
     },
     {
-      "codigo_uf": "15",
-      "uf": "PA",
-      "nome": "Pará"
+      "codigo_uf": "41",
+      "uf": "PR",
+      "nome": "Paraná"
     },
     {
       "codigo_uf": "26",
@@ -91,6 +91,11 @@
       "nome": "Piauí"
     },
     {
+      "codigo_uf": "33",
+      "uf": "RJ",
+      "nome": "Rio de Janeiro"
+    },
+    {
       "codigo_uf": "24",
       "uf": "RN",
       "nome": "Rio Grande do Norte"
@@ -99,11 +104,6 @@
       "codigo_uf": "43",
       "uf": "RS",
       "nome": "Rio Grande do Sul"
-    },
-    {
-      "codigo_uf": "33",
-      "uf": "RJ",
-      "nome": "Rio de Janeiro"
     },
     {
       "codigo_uf": "11",
@@ -121,14 +121,14 @@
       "nome": "Santa Catarina"
     },
     {
-      "codigo_uf": "28",
-      "uf": "SE",
-      "nome": "Sergipe"
-    },
-    {
       "codigo_uf": "35",
       "uf": "SP",
       "nome": "São Paulo"
+    },
+    {
+      "codigo_uf": "28",
+      "uf": "SE",
+      "nome": "Sergipe"
     },
     {
       "codigo_uf": "17",
