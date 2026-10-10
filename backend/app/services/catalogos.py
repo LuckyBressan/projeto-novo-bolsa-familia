@@ -53,6 +53,12 @@ class Catalogo:
     def capitais(self) -> list[Municipio]:
         return list(self._capitais)
 
+    def capitais_ufs(self, filtro: str | None) -> tuple[list[Municipio], list[str] | None]:
+        if filtro is None:
+            return self.capitais(), None
+        ufs = list(dict.fromkeys(self.validar_uf(uf.strip()) for uf in filtro.split(",") if uf.strip()))
+        return [capital for capital in self._capitais if capital.uf in ufs], ufs
+
     def municipio(self, codigo_ibge: str) -> Municipio:
         municipio = self._municipios_codigo.get(codigo_ibge)
         if municipio is None:

@@ -52,3 +52,32 @@ def test_uf_inexistente_indica_estado_invalido(catalogo):
         catalogo.municipios_uf("XX")
 
     assert (erro.value.mensagem, erro.value.detalhes) == ("UF inexistente.", {"uf": "XX"})
+
+
+CAPITAIS = [Municipio("4205407", "Florianópolis", "SC"), Municipio("4106902", "Curitiba", "PR")]
+
+
+@pytest.mark.parametrize(
+    ("filtro", "ufs", "nomes"),
+    [
+        (None, None, ["Florianópolis", "Curitiba"]),
+        ("PR", ["PR"], ["Curitiba"]),
+        ("sc, PR,sc", ["SC", "PR"], ["Florianópolis", "Curitiba"]),
+    ],
+)
+def test_capitais_filtradas_pelas_ufs_informadas(filtro, ufs, nomes):
+    catalogo = Catalogo(estados=ESTADOS, municipios=MUNICIPIOS + CAPITAIS, capitais=CAPITAIS)
+
+    capitais, filtro_aplicado = catalogo.capitais_ufs(filtro)
+
+    assert filtro_aplicado == ufs
+    assert [capital.nome for capital in capitais] == nomes
+
+
+def test_capitais_com_uf_inexistente_indica_estado_invalido():
+    catalogo = Catalogo(estados=ESTADOS, municipios=CAPITAIS, capitais=CAPITAIS)
+
+    with pytest.raises(EstadoInvalido) as erro:
+        catalogo.capitais_ufs("SC,XX")
+
+    assert erro.value.detalhes == {"uf": "XX"}

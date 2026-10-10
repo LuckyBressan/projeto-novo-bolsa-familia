@@ -44,6 +44,12 @@ class MunicipioInvalido(ErroApi):
     mensagem = "Município não encontrado no catálogo."
 
 
+class MetricaInvalida(ErroApi):
+    codigo = "METRICA_INVALIDA"
+    http_status = 422
+    mensagem = "Métrica de ranking não aceita."
+
+
 class ErroFonte(ErroApi):
     """Falha ao obter dados do Portal; nas rotas com várias entradas vira fonte_indisponivel."""
 
