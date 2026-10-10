@@ -3,8 +3,7 @@ import asyncio
 from fastapi import APIRouter
 
 from app.api.dependencias import CatalogoDep, FonteDadosDep, NomeFonteDep, RegraPeriodoDep
-from app.api.v1.parametros import Ano, CodigoIbge, MesFim, MesInicio
-from app.core.errors import ParametroInvalido
+from app.api.v1.parametros import Ano, CodigoIbge, MesFim, MesInicio, garantir_cidades_diferentes
 from app.schemas.comparacao import ComparacaoResposta, EntradaComparacao
 from app.schemas.indicadores import IndicadoresResposta
 from app.schemas.municipio import MunicipioResposta
@@ -30,11 +29,7 @@ async def comparacao_municipios(
     mes_inicio: MesInicio,
     mes_fim: MesFim = None,
 ) -> ComparacaoResposta:
-    if codigo_ibge_a == codigo_ibge_b:
-        raise ParametroInvalido(
-            "As duas cidades devem ser diferentes.",
-            {"campos": ["codigo_ibge_a", "codigo_ibge_b"]},
-        )
+    garantir_cidades_diferentes(codigo_ibge_a, codigo_ibge_b)
     periodo = regra.validar(ano, mes_inicio, mes_fim)
     municipios = [catalogo.municipio(codigo_ibge_a), catalogo.municipio(codigo_ibge_b)]
     resultados = await asyncio.gather(

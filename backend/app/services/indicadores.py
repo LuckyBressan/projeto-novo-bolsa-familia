@@ -86,3 +86,46 @@ def primeira_falha(resultados: list[ResultadoMes]) -> ErroApi | None:
 def falha_todas_entradas(entradas: list[list[ResultadoMes]]) -> ErroApi | None:
     falhas = [primeira_falha(resultados) for resultados in entradas]
     return falhas[0] if falhas and all(falha is not None for falha in falhas) else None
+
+
+@dataclass(frozen=True)
+class ItemSerie:
+    mes: str
+    status_dado: str
+    valor_total: Decimal | None
+    beneficiarios: int | None
+    valor_medio_por_beneficiario: Decimal | None
+    variacao_beneficiarios_absoluta: int | None
+
+
+def calcular_serie(resultados: list[ResultadoMes]) -> list[ItemSerie]:
+    serie: list[ItemSerie] = []
+    anterior: int | None = None
+    for resultado in resultados:
+        totais = resultado.totais
+        if totais is None:
+            status = "fonte_indisponivel" if resultado.erro is not None else "sem_dados"
+            serie.append(ItemSerie(resultado.mes, status, None, None, None, None))
+            anterior = None
+            continue
+        serie.append(
+            ItemSerie(
+                mes=resultado.mes,
+                status_dado="disponivel",
+                valor_total=arredondar(totais.valor),
+                beneficiarios=totais.beneficiarios,
+                valor_medio_por_beneficiario=(
+                    arredondar(totais.valor / totais.beneficiarios) if totais.beneficiarios else None
+                ),
+                variacao_beneficiarios_absoluta=totais.beneficiarios - anterior if anterior is not None else None,
+            )
+        )
+        anterior = totais.beneficiarios
+    return serie
+
+
+def falha_todos_meses(entradas: list[list[ResultadoMes]]) -> ErroApi | None:
+    resultados = [resultado for entrada in entradas for resultado in entrada]
+    if resultados and all(resultado.erro is not None for resultado in resultados):
+        return resultados[0].erro
+    return None
