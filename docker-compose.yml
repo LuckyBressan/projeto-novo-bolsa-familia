@@ -48,3 +48,29 @@ services:
     environment:
       TZ: ${TZ:-America/Sao_Paulo}
       MODO_MOCK: "true"
+
+  frontend:
+    build:
+      context: ./frontend
+      target: runtime
+    ports:
+      - "${FRONTEND_PORT:-8080}:80"
+    depends_on:
+      backend:
+        condition: service_healthy
+    restart: unless-stopped
+
+  frontend-tests:
+    image: node:24-alpine
+    profiles:
+      - test
+    working_dir: /repo/frontend
+    volumes:
+      - ./:/repo
+      - frontend-node-modules:/repo/frontend/node_modules
+    environment:
+      TZ: ${TZ:-America/Sao_Paulo}
+    command: sh -c "npm ci && npm run type-check && npm run test:unit -- --run"
+
+volumes:
+  frontend-node-modules:

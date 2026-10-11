@@ -6,21 +6,37 @@ Back-end em Python (FastAPI) e cliente em Vue.js, orquestrados com Docker Compos
 
 ```text
 .
-├── docker-compose.yml   # orquestra backend (e futuramente o frontend)
+├── docker-compose.yml   # orquestra backend e frontend
 ├── .env.example         # copie para .env
 ├── backend/             # API FastAPI
-└── frontend/            # cliente Vue.js (etapa posterior)
+└── frontend/            # cliente Vue 3 (Vite, TypeScript), servido por nginx
 ```
 
 ## Executar
 
+### Docker completo (testes, homologação e apresentação)
+
 ```bash
 cp .env.example .env              # opcional com MODO_MOCK=true
-docker compose up --build backend
+docker compose up --build
 ```
 
+- Sistema: http://localhost:8080
 - Health: http://localhost:8000/api/v1/health
 - Swagger: http://localhost:8000/docs
+
+O nginx do front-end serve a página e encaminha `/api` para o back-end, então o navegador só fala com a porta 8080. Para trocar as portas, use `FRONTEND_PORT` e `BACKEND_PORT` no `.env`.
+
+### Desenvolvimento (recarga instantânea)
+
+```bash
+docker compose up --build backend   # API em http://localhost:8000
+cd frontend
+npm install
+npm run dev                         # http://localhost:5173
+```
+
+O Vite encaminha `/api` para `http://localhost:8000`. Requer Node 24 (ou 22.18+).
 
 Com `MODO_MOCK=true` (padrão) a API usa os dados fictícios de `backend/app/data/mock/` e não precisa de chave.
 Para consultar o Portal da Transparência, preencha `PORTAL_TRANSPARENCIA_API_KEY` no `.env` e defina `MODO_MOCK=false`.
@@ -35,7 +51,20 @@ Para consultar o Portal da Transparência, preencha `PORTAL_TRANSPARENCIA_API_KE
 
 ```bash
 docker compose --profile test run --rm --build backend-tests
+docker compose --profile test run --rm frontend-tests
 ```
+
+O `frontend-tests` roda a checagem de tipos e os testes unitários (Vitest) num contêiner Node. Ele monta a raiz do repositório, porque os testes leem as respostas de `backend/app/data/mock/api-v1/`: o front é testado contra o mesmo contrato que o back-end garante.
+
+Sem Docker, dentro de `frontend/`:
+
+```bash
+npm run test:unit -- --run
+npm run type-check
+npm run lint
+```
+
+Se o contrato da API mudar, gere os tipos de novo com o back-end no ar: `npm run gerar:tipos`.
 
 ## Simulação de carga (RNF01)
 
