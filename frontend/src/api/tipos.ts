@@ -1,0 +1,25 @@
+import type { components } from './tipos.gerados'
+
+type Esquemas = components['schemas']
+
+export type Saude = Esquemas['HealthResposta']
+export type Periodos = Esquemas['PeriodosResposta']
+export type Periodo = Esquemas['PeriodoResposta']
+export type Estado = Esquemas['EstadoResposta']
+export type ListaEstados = Esquemas['ListaEstadosResposta']
+export type Municipio = Esquemas['MunicipioResposta']
+export type ListaMunicipios = Esquemas['ListaMunicipiosResposta']
+export type Indicadores = Esquemas['IndicadoresResposta']
+export type EntradaComparacao = Esquemas['EntradaComparacao']
+export type Comparacao = Esquemas['ComparacaoResposta']
+export type ItemSerie = Esquemas['ItemSerieResposta']
+export type SerieMunicipio = Esquemas['SerieMunicipio']
+export type Evolucao = Esquemas['EvolucaoResposta']
+export type Capital = Esquemas['CapitalResposta']
+export type Referencia = Esquemas['ReferenciaResposta']
+export type ComparacaoCapitais = Esquemas['ComparacaoCapitaisResposta']
+export type Consumo = Esquemas['ConsumoResposta']
+export type MetricaRanking = Esquemas['MetricaRanking']
+export type StatusDado = Indicadores['status_dado']
+export type Fonte = Comparacao['fonte']
+export type Modo = 'mock' | 'real'
