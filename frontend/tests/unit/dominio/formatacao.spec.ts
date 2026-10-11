@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest'
 
 import {
+  formatarHora,
   formatarInteiro,
   formatarInteiroCompacto,
   formatarMes,
@@ -11,7 +12,7 @@ import {
   nomearMes,
 } from '@/dominio/formatacao'
 
-const normalizar = (texto: string) => texto.replace(/ /g, ' ')
+const normalizar = (texto: string) => texto.replace(/\xa0/g, ' ')
 
 describe('formatação', () => {
   it('formata moeda completa com 2 casas e mostra travessão sem valor', () => {
@@ -50,5 +51,10 @@ describe('formatação', () => {
     expect(formatarVariacao(-1234)).toBe('▼ −1.234')
     expect(formatarVariacao(0)).toBe('= 0')
     expect(formatarVariacao(null)).toBe('—')
+  })
+
+  it('escreve a hora da consulta com dois dígitos', () => {
+    expect(formatarHora(new Date(2026, 9, 11, 15, 40, 59).getTime())).toBe('15:40')
+    expect(formatarHora(new Date(2026, 9, 11, 9, 5).getTime())).toBe('09:05')
   })
 })

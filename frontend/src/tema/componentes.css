@@ -14,6 +14,32 @@
     border: var(--surface-width-sm) solid var(--border);
   }
 
+  .campo {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-scale-half);
+    min-width: 0;
+  }
+
+  .campo__rotulo {
+    font-size: 0.875rem;
+    font-weight: 600;
+  }
+
+  .p-select {
+    min-height: var(--spacing-scale-5x);
+  }
+
+  .p-select-label,
+  .p-select-option,
+  .p-select-filter {
+    font-size: 0.875rem;
+  }
+
+  .p-select-label.p-placeholder {
+    font-style: italic;
+  }
+
   .p-tag.p-tag-secondary {
     border: var(--surface-width-sm) solid var(--border-control);
   }

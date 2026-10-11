@@ -56,6 +56,12 @@ export function formatarInteiroCompacto(valor: number | null): string {
   return valor === null ? SEM_VALOR : inteiroCompacto.format(valor)
 }
 
+const hora = new Intl.DateTimeFormat('pt-BR', { hour: '2-digit', minute: '2-digit' })
+
+export function formatarHora(momento: number): string {
+  return hora.format(momento)
+}
+
 export function formatarVariacao(valor: number | null): string {
   if (valor === null) return SEM_VALOR
   if (valor > 0) return `▲ +${inteiro.format(valor)}`

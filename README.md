@@ -38,6 +38,13 @@ npm run dev                         # http://localhost:5173
 
 O Vite encaminha `/api` para `http://localhost:8000`. Requer Node 24 (ou 22.18+).
 
+Para apontar o front de desenvolvimento para outro back-end (por exemplo, um segundo contêiner em modo mock), use a variável `API_ALVO`:
+
+```bash
+docker run --rm -d -p 8001:8000 -e MODO_MOCK=true comparativo-bolsa-familia-backend
+API_ALVO=http://localhost:8001 npm run dev
+```
+
 Com `MODO_MOCK=true` (padrão) a API usa os dados fictícios de `backend/app/data/mock/` e não precisa de chave.
 Para consultar o Portal da Transparência, preencha `PORTAL_TRANSPARENCIA_API_KEY` no `.env` e defina `MODO_MOCK=false`.
 
