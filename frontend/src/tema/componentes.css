@@ -1,0 +1,34 @@
+@layer app {
+  .p-button {
+    min-height: var(--spacing-scale-5x);
+    font-size: 1.05rem;
+    line-height: 1.15;
+  }
+
+  .p-button-outlined:not(:disabled):hover,
+  .p-button-text:not(:disabled):hover {
+    color: var(--color);
+  }
+
+  .p-card {
+    border: var(--surface-width-sm) solid var(--border);
+  }
+
+  .p-tag.p-tag-secondary {
+    border: var(--surface-width-sm) solid var(--border-control);
+  }
+
+  :root.tema-escuro.alto-contraste .p-card,
+  :root.tema-escuro.alto-contraste .p-select,
+  :root.tema-escuro.alto-contraste .p-multiselect,
+  :root.tema-escuro.alto-contraste .p-datatable,
+  :root.tema-escuro.alto-contraste .p-message,
+  :root.tema-escuro.alto-contraste .p-button-outlined {
+    border-width: var(--surface-width-md);
+    box-shadow: none;
+  }
+
+  :root.tema-escuro.alto-contraste a {
+    text-decoration: underline;
+  }
+}

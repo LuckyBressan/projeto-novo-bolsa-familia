@@ -1,0 +1,125 @@
+/* A primeira declaração define a ordem das camadas; precisa vir antes do CSS que o PrimeVue injeta. */
+@layer base, primevue, app;
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    font-size: 16px;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background: var(--background);
+    color: var(--color);
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    line-height: 1.45;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  p {
+    margin: 0;
+  }
+
+  h1 {
+    font-size: clamp(1.815rem, 5vw, 2.613rem);
+    font-weight: 300;
+    line-height: 1.15;
+  }
+
+  h2 {
+    font-size: clamp(1.512rem, 3.6vw, 2.177rem);
+    font-weight: 400;
+    line-height: 1.15;
+  }
+
+  h3 {
+    font-size: clamp(1.26rem, 2.6vw, 1.512rem);
+    font-weight: 600;
+    line-height: 1.15;
+  }
+
+  h4 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    line-height: 1.15;
+  }
+
+  a {
+    color: var(--interactive);
+  }
+
+  a:hover {
+    color: var(--interactive-hover);
+  }
+
+  :focus-visible {
+    outline: var(--surface-width-lg) dashed var(--focus);
+    outline-offset: var(--spacing-scale-half);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer app {
+  .texto-apoio {
+    font-size: 1.05rem;
+    color: var(--color-secondary);
+  }
+
+  .texto-nota {
+    font-size: 0.729rem;
+    color: var(--color-secondary);
+  }
+
+  .abertura-tela {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-scale-base);
+  }
+
+  .limite-conteudo {
+    width: 100%;
+    max-width: 1200px;
+    margin-inline: auto;
+    padding-inline: var(--spacing-scale-3x);
+  }
+
+  .somente-leitor {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  @media (max-width: 575px) {
+    .texto-apoio {
+      font-size: 0.875rem;
+    }
+
+    .limite-conteudo {
+      padding-inline: var(--spacing-scale-2x);
+    }
+  }
+}

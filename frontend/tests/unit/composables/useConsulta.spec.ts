@@ -5,7 +5,7 @@ import comparacaoParcial from '@mock/comparacao_4202404-x-4209102_2023-10a12_par
 import comparacao from '@mock/comparacao_4214805-x-4202404_2024-01a03.json'
 import { CODIGOS_FRONT, ErroConsulta } from '@/api/erros'
 import type { DefinicaoConsulta } from '@/api/rotas'
-import type { Comparacao, Modo } from '@/api/tipos'
+import type { Comparacao, Fonte, Modo } from '@/api/tipos'
 import { criarCacheResultados } from '@/composables/useCacheResultados'
 import { useConsulta } from '@/composables/useConsulta'
 
@@ -36,7 +36,11 @@ function montarCenario() {
     montarParametros: (filtros) => ({ a: filtros.cidadeA, b: filtros.cidadeB }),
     buscar,
   }
-  const dependencias = { cache: criarCacheResultados(sessionStorage), modo: ref<Modo>('mock') }
+  const dependencias = {
+    cache: criarCacheResultados(sessionStorage),
+    modo: ref<Modo>('mock'),
+    registrarFonte: vi.fn<(fonte: Fonte) => void>(),
+  }
   return { definicao, dependencias, pendentes, buscar }
 }
 
@@ -139,5 +143,16 @@ describe('useConsulta', () => {
     recarregado.dependencias.modo.value = 'real'
     const outroModo = useConsulta(recarregado.definicao, recarregado.dependencias)
     expect(outroModo.restaurar(FILTROS)).toBe(false)
+  })
+
+  it('avisa a fonte da resposta, para o banner saber quando os dados são do mock', async () => {
+    const { definicao, dependencias, pendentes } = montarCenario()
+    const consulta = useConsulta(definicao, dependencias)
+
+    const execucao = consulta.executar(FILTROS)
+    pendentes[0]?.resolver(comparacao as Comparacao)
+    await execucao
+
+    expect(dependencias.registrarFonte).toHaveBeenCalledExactlyOnceWith('mock')
   })
 })

@@ -2,7 +2,7 @@ import { ref, shallowRef, type Ref } from 'vue'
 
 import { ErroConsulta } from '@/api/erros'
 import type { DefinicaoConsulta } from '@/api/rotas'
-import type { Modo } from '@/api/tipos'
+import type { Fonte, Modo } from '@/api/tipos'
 import { montarChaveCache } from '@/dominio/cache'
 import { useCacheResultados, type CacheResultados } from './useCacheResultados'
 import { useModoMock } from './useModoMock'
@@ -10,6 +10,19 @@ import { useModoMock } from './useModoMock'
 interface Dependencias {
   cache: CacheResultados
   modo: Readonly<Ref<Modo>>
+  registrarFonte(fonte: Fonte): void
+}
+
+function criarDependencias(): Dependencias {
+  const { modo, registrarFonte } = useModoMock()
+  return { cache: useCacheResultados(), modo, registrarFonte }
+}
+
+function lerFonte(resposta: unknown): Fonte | null {
+  if (resposta === null || typeof resposta !== 'object' || !('fonte' in resposta)) return null
+  return resposta.fonte === 'mock' || resposta.fonte === 'portal_transparencia'
+    ? resposta.fonte
+    : null
 }
 
 function normalizarFalha(falha: unknown): ErroConsulta {
@@ -18,7 +31,7 @@ function normalizarFalha(falha: unknown): ErroConsulta {
 
 export function useConsulta<Filtros, Resposta>(
   definicao: DefinicaoConsulta<Filtros, Resposta>,
-  dependencias: Dependencias = { cache: useCacheResultados(), modo: useModoMock().modo },
+  dependencias: Dependencias = criarDependencias(),
 ) {
   const dados = shallowRef<Resposta | null>(null)
   const erro = shallowRef<ErroConsulta | null>(null)
@@ -58,6 +71,8 @@ export function useConsulta<Filtros, Resposta>(
     try {
       const resposta = await definicao.buscar(parametros, controle)
       if (controleAtual !== controle) return
+      const fonte = lerFonte(resposta)
+      if (fonte) dependencias.registrarFonte(fonte)
       const agora = Date.now()
       mostrar(resposta, filtros, agora, false)
       dependencias.cache.guardar(montarChave(parametros), resposta, agora)
