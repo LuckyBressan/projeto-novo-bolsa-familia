@@ -8,6 +8,7 @@ import {
   formatarMoeda,
   formatarMoedaCompacta,
   formatarPeriodo,
+  formatarPosicao,
   formatarVariacao,
   nomearMes,
 } from '@/dominio/formatacao'
@@ -56,5 +57,11 @@ describe('formatação', () => {
   it('escreve a hora da consulta com dois dígitos', () => {
     expect(formatarHora(new Date(2026, 9, 11, 15, 40, 59).getTime())).toBe('15:40')
     expect(formatarHora(new Date(2026, 9, 11, 9, 5).getTime())).toBe('09:05')
+  })
+
+  it('formata a posição no ranking como ordinal e mostra travessão sem posição', () => {
+    expect(formatarPosicao(3)).toBe('3º')
+    expect(formatarPosicao(27)).toBe('27º')
+    expect(formatarPosicao(null)).toBe('—')
   })
 })

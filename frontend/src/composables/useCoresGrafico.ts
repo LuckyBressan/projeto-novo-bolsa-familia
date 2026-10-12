@@ -14,6 +14,7 @@ function lerCores(): CoresGrafico {
     ),
     eixo: ler('--chart-axis'),
     grade: ler('--chart-grid'),
+    texto: ler('--color'),
     espessura: raiz.classList.contains('alto-contraste') ? 3 : 2,
   }
 }

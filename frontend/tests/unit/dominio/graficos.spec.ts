@@ -8,6 +8,7 @@ import {
   montarDadosEvolucao,
   montarOpcoesEvolucao,
   montarTabelaDados,
+  montarTabelaSeries,
   montarVariacao,
   resumirEvolucao,
   type CoresGrafico,
@@ -17,6 +18,7 @@ const CORES: CoresGrafico = {
   series: ['#azul', '#laranja', '#verde', '#magenta', '#violeta', '#ciano'],
   eixo: '#eixo',
   grade: '#grade',
+  texto: '#texto',
   espessura: 2,
 }
 
@@ -68,7 +70,8 @@ describe('gráfico de evolução', () => {
     const tabela = montarTabelaDados(lacuna, 'valor_total')
 
     expect(tabela.colunas).toEqual(['Blumenau (SC)', 'Joinville (SC)'])
-    expect(tabela.linhas.map((linha) => [linha.mes, ...linha.valores.map(limpar)])).toEqual([
+    expect(tabela.primeira).toBe('Mês')
+    expect(tabela.linhas.map((linha) => [linha.rotulo, ...linha.valores.map(limpar)])).toEqual([
       ['out/2023', 'R$ 3.683.071,26', 'R$ 6.821.228,70'],
       ['nov/2023', 'sem dados', 'R$ 6.733.837,44'],
       ['dez/2023', 'R$ 3.747.450,00', 'R$ 6.817.226,91'],
@@ -150,5 +153,16 @@ describe('gráfico de evolução', () => {
     expect(
       montarOpcoesEvolucao(lacuna, 'beneficiarios', CORES, { animar: true }).animation,
     ).toEqual({})
+  })
+
+  it('monta a tabela com um município por linha quando há muitas séries', () => {
+    const tabela = montarTabelaSeries(lacuna, 'beneficiarios')
+
+    expect(tabela.primeira).toBe('Município')
+    expect(tabela.colunas).toEqual(['out/2023', 'nov/2023', 'dez/2023'])
+    expect(tabela.linhas).toEqual([
+      { rotulo: 'Blumenau (SC)', valores: ['5.736', 'sem dados', '5.810'] },
+      { rotulo: 'Joinville (SC)', valores: ['10.530', '10.457', '10.411'] },
+    ])
   })
 })

@@ -310,16 +310,6 @@ watch(
 </template>
 
 <style scoped>
-.filtros {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-scale-3x);
-  padding: var(--spacing-scale-3x);
-  border: var(--surface-width-sm) solid var(--border);
-  border-radius: var(--surface-rounder-md);
-  background: var(--background-alternative);
-}
-
 .filtros__cidades {
   display: flex;
   flex-wrap: wrap;
@@ -330,72 +320,8 @@ watch(
   flex: 1 1 340px;
 }
 
-.filtros__rodape {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: var(--spacing-scale-3x);
-}
-
 .filtros__periodo {
   flex: 1 1 340px;
   max-width: 560px;
-}
-
-.filtros__acoes {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: flex-end;
-  gap: var(--spacing-scale-baseh) var(--spacing-scale-2x);
-}
-
-.filtros__motivo {
-  color: var(--color-secondary);
-}
-
-.filtros__espera,
-.resultados__espera {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: var(--spacing-scale-3x);
-}
-
-.avisos {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-scale-2x);
-}
-
-.avisos:empty {
-  display: none;
-}
-
-.resultados {
-  display: flex;
-  flex-direction: column;
-}
-
-.resultados__resumo {
-  font-size: 1.05rem;
-}
-
-:root.tema-escuro.alto-contraste .filtros {
-  border-width: var(--surface-width-md);
-}
-
-@media (max-width: 575px) {
-  .filtros {
-    padding: var(--spacing-scale-2x);
-  }
-
-  .filtros__acoes {
-    width: 100%;
-  }
-
-  .filtros__acoes :deep(.p-button[type='submit']) {
-    width: 100%;
-  }
 }
 </style>

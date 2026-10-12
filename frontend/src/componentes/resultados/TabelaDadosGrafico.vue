@@ -15,15 +15,15 @@ defineProps<{
         <caption v-text="legenda" />
         <thead>
           <tr>
-            <th scope="col">Mês</th>
+            <th scope="col">{{ tabela.primeira }}</th>
             <th v-for="coluna in tabela.colunas" :key="coluna" scope="col" class="tabela__numero">
               {{ coluna }}
             </th>
           </tr>
         </thead>
         <tbody>
-          <tr v-for="linha in tabela.linhas" :key="linha.mes">
-            <th scope="row">{{ linha.mes }}</th>
+          <tr v-for="linha in tabela.linhas" :key="linha.rotulo">
+            <th scope="row">{{ linha.rotulo }}</th>
             <td v-for="(valor, posicao) in linha.valores" :key="posicao" class="tabela__numero">
               {{ valor }}
             </td>

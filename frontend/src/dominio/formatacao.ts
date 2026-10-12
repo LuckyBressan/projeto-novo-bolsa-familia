@@ -76,3 +76,7 @@ export function formatarMoeda(valor: number | null): string {
 export function formatarMoedaCompacta(valor: number | null): string {
   return valor === null ? SEM_VALOR : moedaCompacta.format(valor)
 }
+
+export function formatarPosicao(posicao: number | null): string {
+  return posicao === null ? SEM_VALOR : `${posicao}º`
+}

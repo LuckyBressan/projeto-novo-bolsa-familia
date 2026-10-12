@@ -15,6 +15,7 @@ export interface CoresGrafico {
   series: string[]
   eixo: string
   grade: string
+  texto: string
   espessura: number
 }
 
@@ -24,7 +25,7 @@ export interface SerieGrafico {
   meses: ItemSerie[]
 }
 
-const FONTE_GRAFICO = { family: '"NBF Digitos", Rawline, Raleway, sans-serif', size: 12 }
+export const FONTE_GRAFICO = { family: '"NBF Digitos", Rawline, Raleway, sans-serif', size: 12 }
 const FORMAS_PONTO = ['circle', 'triangle', 'rect', 'rectRot', 'star', 'cross']
 const POSICAO_TRACEJADA = 1
 const TRACEJADO = [6, 4]
@@ -65,8 +66,9 @@ export function montarDadosEvolucao(
 }
 
 export interface TabelaDados {
+  primeira: string
   colunas: string[]
-  linhas: { mes: string; valores: string[] }[]
+  linhas: { rotulo: string; valores: string[] }[]
 }
 
 const TEXTO_SEM_NUMERO: Partial<Record<StatusDado, string>> = {
@@ -84,13 +86,25 @@ function descreverCelula(mes: ItemSerie, campo: CampoSerie): string {
 
 export function montarTabelaDados(series: SerieGrafico[], campo: CampoSerie): TabelaDados {
   return {
+    primeira: 'Mês',
     colunas: series.map((serie) => serie.nome),
     linhas: (series[0]?.meses ?? []).map((mes, indice) => ({
-      mes: formatarMes(mes.mes),
+      rotulo: formatarMes(mes.mes),
       valores: series.map((serie) => {
         const item = serie.meses[indice]
         return item ? descreverCelula(item, campo) : SEM_VALOR
       }),
+    })),
+  }
+}
+
+export function montarTabelaSeries(series: SerieGrafico[], campo: CampoSerie): TabelaDados {
+  return {
+    primeira: 'Município',
+    colunas: (series[0]?.meses ?? []).map((mes) => formatarMes(mes.mes)),
+    linhas: series.map((serie) => ({
+      rotulo: serie.nome,
+      valores: serie.meses.map((mes) => descreverCelula(mes, campo)),
     })),
   }
 }
