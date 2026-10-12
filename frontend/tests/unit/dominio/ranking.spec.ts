@@ -129,6 +129,58 @@ describe('ranking das capitais', () => {
   })
 })
 
+describe('posição com uma capital ou nenhuma', () => {
+  const curitiba = resposta.capitais.filter((capital) => capital.municipio.uf === 'PR')
+
+  it('fala no singular quando só uma capital foi ranqueada', () => {
+    expect(
+      descreverPosicao({
+        ...resposta,
+        capitais: curitiba,
+        referencia: { ...resposta.referencia, posicao_entre_capitais: 2 },
+      }).frase,
+    ).toBe('Ficaria em 2º lugar, depois da única capital ranqueada por valor total recebido.')
+    expect(
+      descreverPosicao({
+        ...resposta,
+        capitais: curitiba,
+        referencia: { ...resposta.referencia, posicao_entre_capitais: 1 },
+      }).frase,
+    ).toBe('Ficaria em 1º lugar, à frente da única capital ranqueada por valor total recebido.')
+  })
+
+  it('quando a referência é a única capital ranqueada, diz isso', () => {
+    const [capital] = curitiba
+    if (!capital) throw new Error('fixture sem Curitiba')
+
+    expect(
+      descreverPosicao({
+        ...resposta,
+        capitais: curitiba,
+        referencia: {
+          municipio: capital.municipio,
+          indicadores: capital.indicadores,
+          meses: capital.meses,
+          posicao_entre_capitais: 1,
+        },
+      }).frase,
+    ).toBe('É a única capital ranqueada por valor total recebido.')
+  })
+
+  it('avisa quando nenhuma capital tem dados para comparar', () => {
+    expect(
+      descreverPosicao({
+        ...resposta,
+        capitais: resposta.capitais.filter((capital) => capital.municipio.uf === 'RR'),
+        referencia: { ...resposta.referencia, posicao_entre_capitais: 1 },
+      }),
+    ).toEqual({
+      destaque: '—',
+      frase: 'Nenhuma capital com dados no período para comparar.',
+    })
+  })
+})
+
 describe('gráfico do ranking', () => {
   it('desenha as capitais em uma cor e a referência em outra, com borda', () => {
     const ranking = montarRanking(sul as ComparacaoCapitais)

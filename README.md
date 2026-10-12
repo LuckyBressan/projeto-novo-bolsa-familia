@@ -12,6 +12,15 @@ Back-end em Python (FastAPI) e cliente em Vue.js, orquestrados com Docker Compos
 └── frontend/            # cliente Vue 3 (Vite, TypeScript), servido por nginx
 ```
 
+## Telas
+
+- **Comparar cidades** (`/`): dois municípios em até 3 meses do mesmo ano, com os indicadores do período e a evolução mensal do valor total e dos beneficiários.
+- **Capitais** (`/capitais`): um município de referência frente às capitais, com a posição que ocuparia, o ranking, a evolução mensal e a tabela por capital.
+
+Nada é consultado ao abrir uma tela: os resultados só aparecem depois de **Gerar comparativo**. Os filtros ficam na URL, então o endereço pode ser copiado e reaberto.
+
+O tema é escolhido no cabeçalho: Automático (segue o sistema), Claro, Escuro ou Alto contraste. A escolha fica guardada no navegador.
+
 ## Executar
 
 ### Docker completo (testes, homologação e apresentação)
@@ -102,3 +111,7 @@ docker compose --profile test run --rm --env-from-file .env backend-tests \
 - Com `MODO_MOCK=true` o script recusa a execução: números do mock não valem como evidência.
 
 As evidências das rodadas ficam em `backend/evidencias/`.
+
+## Evidências do front-end
+
+Capturas das duas telas nos três temas (desktop e celular), a varredura de acessibilidade (axe e Lighthouse) e a conferência de valores no modo real ficam em `frontend/evidencias/`, com a descrição de cada arquivo no `README.md` da pasta.

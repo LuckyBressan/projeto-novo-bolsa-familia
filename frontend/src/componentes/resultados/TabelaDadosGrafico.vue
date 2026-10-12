@@ -10,7 +10,7 @@ defineProps<{
 <template>
   <details class="dados">
     <summary class="dados__abrir">Ver dados em tabela</summary>
-    <div class="tabela-rolagem">
+    <div class="tabela-rolagem" tabindex="0" role="region" :aria-label="legenda">
       <table class="tabela">
         <caption v-text="legenda" />
         <thead>

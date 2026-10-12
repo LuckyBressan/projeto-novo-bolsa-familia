@@ -1,0 +1,25 @@
+{
+  "ferramenta": "Lighthouse 12.6.1 (preset desktop)",
+  "data": "2026-10-12",
+  "ambiente": "docker compose, MODO_MOCK=true, http://localhost:8080",
+  "resultados": [
+    {
+      "tela": "cidades",
+      "url": "http://localhost:8080/?cidadeA=4214805&cidadeB=4202404&ano=2024&mesInicio=1&mesFim=3",
+      "notas": {
+        "accessibility": 100,
+        "best-practices": 100
+      },
+      "auditoriasReprovadas": []
+    },
+    {
+      "tela": "capitais",
+      "url": "http://localhost:8080/capitais?referencia=4214805&ano=2024&mesInicio=1&mesFim=3",
+      "notas": {
+        "accessibility": 100,
+        "best-practices": 100
+      },
+      "auditoriasReprovadas": []
+    }
+  ]
+}

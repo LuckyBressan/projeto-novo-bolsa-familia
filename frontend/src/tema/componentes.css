@@ -17,7 +17,7 @@
   .campo {
     display: flex;
     flex-direction: column;
-    gap: var(--spacing-scale-half);
+    gap: var(--spacing-scale-base);
     min-width: 0;
   }
 

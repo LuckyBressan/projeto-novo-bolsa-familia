@@ -7,7 +7,12 @@ defineProps<{ linhas: LinhaVariacao[] }>()
 <template>
   <div class="variacao">
     <h3 class="variacao__titulo">Variação em relação ao mês anterior</h3>
-    <div class="tabela-rolagem">
+    <div
+      class="tabela-rolagem"
+      tabindex="0"
+      role="region"
+      aria-label="Variação em relação ao mês anterior"
+    >
       <table class="tabela variacao__tabela">
         <thead>
           <tr>

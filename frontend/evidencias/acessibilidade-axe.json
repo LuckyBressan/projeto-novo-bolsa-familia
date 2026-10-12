@@ -1,0 +1,109 @@
+{
+  "ferramenta": "axe-core 4.10.2",
+  "regras": [
+    "wcag2a",
+    "wcag2aa",
+    "wcag21aa",
+    "best-practice"
+  ],
+  "data": "2026-10-12",
+  "ambiente": "docker compose, MODO_MOCK=true, http://localhost:8080",
+  "resultados": [
+    {
+      "captura": "cidades-claro-1366.png",
+      "tema": "claro",
+      "largura": 1366,
+      "regrasAprovadas": 44,
+      "violacoes": [],
+      "contrasteParaRevisar": 0
+    },
+    {
+      "captura": "capitais-claro-1366.png",
+      "tema": "claro",
+      "largura": 1366,
+      "regrasAprovadas": 51,
+      "violacoes": [],
+      "contrasteParaRevisar": 0
+    },
+    {
+      "captura": "cidades-claro-390.png",
+      "tema": "claro",
+      "largura": 390,
+      "regrasAprovadas": 47,
+      "violacoes": [],
+      "contrasteParaRevisar": 0
+    },
+    {
+      "captura": "capitais-claro-390.png",
+      "tema": "claro",
+      "largura": 390,
+      "regrasAprovadas": 52,
+      "violacoes": [],
+      "contrasteParaRevisar": 0
+    },
+    {
+      "captura": "cidades-escuro-1366.png",
+      "tema": "escuro",
+      "largura": 1366,
+      "regrasAprovadas": 44,
+      "violacoes": [],
+      "contrasteParaRevisar": 0
+    },
+    {
+      "captura": "capitais-escuro-1366.png",
+      "tema": "escuro",
+      "largura": 1366,
+      "regrasAprovadas": 51,
+      "violacoes": [],
+      "contrasteParaRevisar": 0
+    },
+    {
+      "captura": "cidades-escuro-390.png",
+      "tema": "escuro",
+      "largura": 390,
+      "regrasAprovadas": 47,
+      "violacoes": [],
+      "contrasteParaRevisar": 0
+    },
+    {
+      "captura": "capitais-escuro-390.png",
+      "tema": "escuro",
+      "largura": 390,
+      "regrasAprovadas": 52,
+      "violacoes": [],
+      "contrasteParaRevisar": 0
+    },
+    {
+      "captura": "cidades-contraste-1366.png",
+      "tema": "contraste",
+      "largura": 1366,
+      "regrasAprovadas": 44,
+      "violacoes": [],
+      "contrasteParaRevisar": 0
+    },
+    {
+      "captura": "capitais-contraste-1366.png",
+      "tema": "contraste",
+      "largura": 1366,
+      "regrasAprovadas": 51,
+      "violacoes": [],
+      "contrasteParaRevisar": 0
+    },
+    {
+      "captura": "cidades-contraste-390.png",
+      "tema": "contraste",
+      "largura": 390,
+      "regrasAprovadas": 47,
+      "violacoes": [],
+      "contrasteParaRevisar": 0
+    },
+    {
+      "captura": "capitais-contraste-390.png",
+      "tema": "contraste",
+      "largura": 390,
+      "regrasAprovadas": 52,
+      "violacoes": [],
+      "contrasteParaRevisar": 0
+    }
+  ]
+}

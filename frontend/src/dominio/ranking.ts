@@ -106,14 +106,30 @@ export function descreverPosicao(resposta: ComparacaoCapitais): DescricaoPosicao
     return { destaque, frase: 'Sem posição no ranking: dados incompletos para o período.' }
   }
   const { totalRanqueadas } = montarRanking(resposta)
-  const criterio = `capitais ranqueadas por ${descreverMetrica(resposta.metrica_ranking).frase}`
-  const lugar =
-    posicao > totalRanqueadas
-      ? `depois das ${totalRanqueadas} ${criterio}`
-      : `entre as ${totalRanqueadas} ${criterio}`
-  const separador = posicao > totalRanqueadas ? ',' : ''
-  const verbo = verificarReferenciaCapital(resposta) ? 'Está' : 'Ficaria'
-  return { destaque, frase: `${verbo} em ${destaque} lugar${separador} ${lugar}.` }
+  if (totalRanqueadas === 0) {
+    return {
+      destaque: formatarPosicao(null),
+      frase: 'Nenhuma capital com dados no período para comparar.',
+    }
+  }
+  const criterio = descreverMetrica(resposta.metrica_ranking).frase
+  const capital = verificarReferenciaCapital(resposta)
+  if (capital && totalRanqueadas === 1) {
+    return { destaque, frase: `É a única capital ranqueada por ${criterio}.` }
+  }
+  const verbo = capital ? 'Está' : 'Ficaria'
+  const lugar = situarEntreCapitais(posicao, totalRanqueadas, criterio)
+  return { destaque, frase: `${verbo} em ${destaque} lugar${lugar}.` }
+}
+
+function situarEntreCapitais(posicao: number, total: number, criterio: string): string {
+  const depois = posicao > total
+  if (total === 1) {
+    return `, ${depois ? 'depois da' : 'à frente da'} única capital ranqueada por ${criterio}`
+  }
+  return depois
+    ? `, depois das ${total} capitais ranqueadas por ${criterio}`
+    : ` entre as ${total} capitais ranqueadas por ${criterio}`
 }
 
 const POSICAO_CAPITAL = 0

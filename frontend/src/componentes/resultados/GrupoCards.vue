@@ -88,21 +88,23 @@ const indicadores = computed(() =>
 
   <div v-else class="grupo">
     <div v-for="cidade in cidades" :key="cidade.codigo" class="grupo__cidade">
-      <div class="grupo__titulo">
-        <MarcadorSerie :posicao="cidade.posicao" :tamanho="14" />
-        <h3>{{ cidade.nome }}</h3>
-        <SeloStatus :situacao="cidade.indicadores" />
+      <div class="grupo__cabecalho">
+        <div class="grupo__titulo">
+          <MarcadorSerie :posicao="cidade.posicao" :tamanho="14" />
+          <h3>{{ cidade.nome }}</h3>
+          <SeloStatus :situacao="cidade.indicadores" />
+        </div>
+        <p v-if="cidade.mensagem" class="grupo__mensagem">
+          {{ cidade.mensagem }}
+          <Button
+            v-if="cidade.falhou"
+            label="Tentar novamente"
+            variant="text"
+            size="small"
+            @click="$emit('tentarNovamente')"
+          />
+        </p>
       </div>
-      <p v-if="cidade.mensagem" class="grupo__mensagem">
-        {{ cidade.mensagem }}
-        <Button
-          v-if="cidade.falhou"
-          label="Tentar novamente"
-          variant="text"
-          size="small"
-          @click="$emit('tentarNovamente')"
-        />
-      </p>
       <CardIndicador v-for="card in cidade.cards" :key="card.titulo" v-bind="card" />
     </div>
   </div>
@@ -116,10 +118,17 @@ const indicadores = computed(() =>
 }
 
 .grupo__cidade {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: subgrid;
+  grid-row: span 4;
   gap: var(--spacing-scale-2x);
   min-width: 0;
+}
+
+.grupo__cabecalho {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-scale-base);
 }
 
 .grupo__titulo {
