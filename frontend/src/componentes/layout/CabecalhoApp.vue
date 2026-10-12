@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import AlternarTema from './AlternarTema.vue'
 import LogoApp from './LogoApp.vue'
 
 const telas = [
@@ -17,16 +18,19 @@ const telas = [
           <span class="texto-nota">Dados públicos do Portal da Transparência</span>
         </div>
       </div>
-      <nav class="cabecalho__navegacao" aria-label="Principal">
-        <RouterLink
-          v-for="tela in telas"
-          :key="tela.nome"
-          :to="{ name: tela.nome }"
-          class="cabecalho__link"
-        >
-          {{ tela.rotulo }}
-        </RouterLink>
-      </nav>
+      <div class="cabecalho__controles">
+        <nav class="cabecalho__navegacao" aria-label="Principal">
+          <RouterLink
+            v-for="tela in telas"
+            :key="tela.nome"
+            :to="{ name: tela.nome }"
+            class="cabecalho__link"
+          >
+            {{ tela.rotulo }}
+          </RouterLink>
+        </nav>
+        <AlternarTema />
+      </div>
     </div>
   </div>
 </template>
@@ -64,6 +68,13 @@ const telas = [
   line-height: 1.15;
 }
 
+.cabecalho__controles {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--spacing-scale-2x) var(--spacing-scale-3x);
+}
+
 .cabecalho__navegacao {
   display: flex;
   flex-wrap: wrap;
@@ -98,7 +109,12 @@ const telas = [
 }
 
 @media (max-width: 575px) {
+  .cabecalho__controles,
   .cabecalho__navegacao {
+    width: 100%;
+  }
+
+  .cabecalho__controles > :deep(.tema) {
     width: 100%;
   }
 

@@ -157,6 +157,31 @@ const selo = {
   secondary: { background: 'var(--background-alternative)', color: 'var(--color)' },
 }
 
+const alternancia = {
+  root: {
+    background: 'var(--background-alternative)',
+    checkedBackground: 'var(--interactive)',
+    hoverBackground: 'var(--interactive-subtle)',
+    borderColor: 'var(--border-control)',
+    color: 'var(--color)',
+    hoverColor: 'var(--color)',
+    checkedColor: 'var(--on-interactive)',
+    checkedBorderColor: 'var(--interactive)',
+  },
+  content: { checkedBackground: 'transparent' },
+  icon: {
+    color: 'var(--color)',
+    hoverColor: 'var(--color)',
+    checkedColor: 'var(--on-interactive)',
+  },
+}
+
+const etiqueta = {
+  root: { background: 'var(--interactive-subtle)', color: 'var(--color)' },
+  icon: { color: 'var(--color)' },
+  removeIcon: { color: 'var(--color)' },
+}
+
 export const presetGovBr = definePreset(Aura, {
   primitive: {
     borderRadius: { none: '0', xs: '2px', sm: '4px', md: '8px', lg: '16px', xl: '16px' },
@@ -203,6 +228,12 @@ export const presetGovBr = definePreset(Aura, {
       root: { borderRadius: '8px', shadow: 'var(--surface-shadow-sm)' },
       body: { padding: '24px' },
     },
+    togglebutton: {
+      root: { fontWeight: '600' },
+      content: { checkedShadow: 'none' },
+      colorScheme: { light: alternancia, dark: alternancia },
+    },
+    chip: { colorScheme: { light: etiqueta, dark: etiqueta } },
     tag: {
       root: { borderRadius: '4px', fontWeight: '600', fontSize: '0.875rem' },
       colorScheme: { light: selo, dark: selo },

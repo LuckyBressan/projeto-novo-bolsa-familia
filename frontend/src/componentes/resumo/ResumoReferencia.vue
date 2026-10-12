@@ -41,6 +41,7 @@ const mensagem = computed(() => descreverStatus(props.referencia.indicadores).me
         v-for="card in cards"
         :key="card.titulo"
         v-bind="card"
+        :nivel="3"
         :class="{ 'resumo__card--ranqueada': card.ranqueada }"
       >
         <template #titulo>

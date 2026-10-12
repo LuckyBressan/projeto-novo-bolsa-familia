@@ -80,3 +80,29 @@ describe('RodapeFonte', () => {
     expect(rodape.text()).toContain('não é um site oficial do governo')
   })
 })
+
+describe('AlternarTema', () => {
+  it('oferece os quatro temas e aplica e guarda o escolhido', async () => {
+    localStorage.clear()
+    document.documentElement.className = ''
+    const { default: AlternarTema } = await import('@/componentes/layout/AlternarTema.vue')
+    const alternar = mount(AlternarTema, { global, attachTo: document.body })
+    const opcoes = alternar.findAll('button')
+
+    expect(opcoes.map((opcao) => opcao.text())).toEqual([
+      'Automático',
+      'Claro',
+      'Escuro',
+      'Alto contraste',
+    ])
+    expect(opcoes[0]?.attributes('aria-pressed')).toBe('true')
+
+    await opcoes[3]?.trigger('click')
+    await flushPromises()
+
+    expect([...document.documentElement.classList]).toEqual(['tema-escuro', 'alto-contraste'])
+    expect(localStorage.getItem('tema')).toBe('contraste')
+    alternar.unmount()
+    document.documentElement.className = ''
+  })
+})

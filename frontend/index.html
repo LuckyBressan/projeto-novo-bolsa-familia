@@ -5,6 +5,30 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Comparativo do Novo Bolsa Família</title>
+    <script>
+      // Aplica o tema antes de o Vue montar, para a página não piscar no tema errado.
+      // A regra é a mesma de src/dominio/tema.ts.
+      ;(function () {
+        var escolha = 'automatico'
+        try {
+          escolha = localStorage.getItem('tema') || 'automatico'
+        } catch (falha) {}
+        var consultar = function (consulta) {
+          return window.matchMedia && window.matchMedia(consulta).matches
+        }
+        var tema = escolha
+        if (['claro', 'escuro', 'contraste'].indexOf(escolha) === -1) {
+          tema = consultar('(prefers-contrast: more)')
+            ? 'contraste'
+            : consultar('(prefers-color-scheme: dark)')
+              ? 'escuro'
+              : 'claro'
+        }
+        var raiz = document.documentElement
+        if (tema !== 'claro') raiz.classList.add('tema-escuro')
+        if (tema === 'contraste') raiz.classList.add('alto-contraste')
+      })()
+    </script>
   </head>
   <body>
     <div id="app"></div>

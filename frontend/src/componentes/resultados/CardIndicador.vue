@@ -7,15 +7,16 @@ defineProps<{
   valorCompacto: string
   complemento?: string
   compacto?: boolean
+  nivel?: 3 | 4
 }>()
 </script>
 
 <template>
   <Card class="indicador" :class="{ 'indicador--compacto': compacto }">
     <template #title>
-      <h4 class="indicador__titulo">
+      <component :is="`h${nivel ?? 4}`" class="indicador__titulo">
         <slot name="titulo">{{ titulo }}</slot>
-      </h4>
+      </component>
     </template>
     <template #content>
       <span class="indicador__valor" :title="valor">{{ compacto ? valorCompacto : valor }}</span>
