@@ -3,6 +3,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 import comparacao from '@mock/comparacao_4214805-x-4202404_2024-01a03.json'
 import estados from '@mock/estados.json'
+import evolucao from '@mock/evolucao_4214805-x-4202404_2024-01a03.json'
 import saude from '@mock/health.json'
 import municipiosSc from '@mock/municipios_uf-SC.json'
 import periodos from '@mock/periodos.json'
@@ -15,11 +16,13 @@ const RESPOSTAS: Record<string, unknown> = {
   '/estados': estados,
   '/municipios': municipiosSc,
   '/comparacoes/municipios': comparacao,
+  '/evolucao-mensal': evolucao,
 }
 
-function simularApi() {
+function simularApi(falhas: string[] = []) {
   const buscar = vi.fn<(url: string) => Promise<Response>>(async (url) => {
     const caminho = url.replace('/api/v1', '').split('?')[0] ?? ''
+    if (falhas.includes(caminho)) return new Response('', { status: 502 })
     return new Response(JSON.stringify(RESPOSTAS[caminho]), { status: 200 })
   })
   vi.stubGlobal('fetch', buscar)
@@ -39,7 +42,7 @@ async function abrir(endereco: string) {
   await router.isReady()
   usePeriodos().carregar()
   const tela = mount(Tela, {
-    global: { plugins: [router, [PrimeVue, { theme: 'none' }]] },
+    global: { plugins: [router, [PrimeVue, { theme: 'none' }]], stubs: { Chart: true } },
     attachTo: document.body,
   })
   await flushPromises()
@@ -130,5 +133,54 @@ describe('tela Comparar cidades com resultado em cache', () => {
     expect(texto()).toContain('Os filtros mudaram.')
     expect(texto()).toContain('ainda é de Rio do Sul (SC) × Blumenau (SC), jan/2024 a mar/2024')
     expect(listarChamadas(buscar, '/comparacoes')).toEqual([])
+  })
+})
+
+describe('tela Comparar cidades: evolução mensal', () => {
+  beforeEach(() => {
+    sessionStorage.clear()
+    localStorage.clear()
+  })
+
+  it('consulta a evolução junto com a comparação e mostra as duas seções com tabela', async () => {
+    const buscar = simularApi()
+    const { tela, texto } = await abrir(URL_COMPLETA)
+
+    expect(listarChamadas(buscar, '/evolucao-mensal')).toEqual([])
+
+    await tela.get('form').trigger('submit')
+    await flushPromises()
+
+    expect(listarChamadas(buscar, '/evolucao-mensal')).toEqual([
+      '/api/v1/evolucao-mensal?codigo_ibge_a=4214805&codigo_ibge_b=4202404&ano=2024&mes_inicio=1&mes_fim=3',
+    ])
+    expect(tela.findAll('h2').map((titulo) => titulo.text())).toEqual([
+      'Indicadores do período',
+      'Evolução do valor total',
+      'Evolução dos beneficiários',
+    ])
+    expect(texto()).toContain('Variação em relação ao mês anterior')
+    expect(texto()).toContain('▲ +16')
+    expect(texto()).toContain('▼ −8')
+    expect(texto()).toContain('R$ 1.013.272,42')
+    expect(tela.findAll('details')).toHaveLength(2)
+  })
+
+  it('se só a evolução falhar, mantém os indicadores e refaz só a evolução', async () => {
+    const buscar = simularApi(['/evolucao-mensal'])
+    const { tela, texto } = await abrir(URL_COMPLETA)
+    await tela.get('form').trigger('submit')
+    await flushPromises()
+
+    expect(texto()).toContain('R$ 3.042.086,65')
+    expect(texto()).not.toContain('Variação em relação ao mês anterior')
+    const repetir = tela.findAll('button').filter((botao) => botao.text() === 'Tentar novamente')
+    expect(repetir).toHaveLength(2)
+
+    await repetir[0]?.trigger('click')
+    await flushPromises()
+
+    expect(listarChamadas(buscar, '/evolucao-mensal')).toHaveLength(2)
+    expect(listarChamadas(buscar, '/comparacoes')).toHaveLength(1)
   })
 })

@@ -40,6 +40,48 @@
     font-style: italic;
   }
 
+  .tabela-rolagem {
+    position: relative;
+    overflow-x: auto;
+  }
+
+  .tabela {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--surface-card);
+    color: var(--color);
+    font-size: 0.875rem;
+  }
+
+  .tabela caption {
+    padding-bottom: var(--spacing-scale-base);
+    font-size: 1.05rem;
+    font-weight: 700;
+    text-align: left;
+  }
+
+  .tabela th,
+  .tabela td {
+    padding: var(--spacing-scale-baseh) var(--spacing-scale-2x);
+    border-bottom: var(--surface-width-sm) solid var(--border);
+    text-align: left;
+  }
+
+  .tabela thead th {
+    border-bottom: var(--surface-width-md) solid var(--border-control);
+    background: var(--background-alternative);
+    font-weight: 600;
+  }
+
+  .tabela tbody th {
+    font-weight: 600;
+  }
+
+  .tabela .tabela__numero {
+    text-align: right;
+    white-space: nowrap;
+  }
+
   .p-tag.p-tag-secondary {
     border: var(--surface-width-sm) solid var(--border-control);
   }

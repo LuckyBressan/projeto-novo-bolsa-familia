@@ -5,14 +5,17 @@ import Skeleton from 'primevue/skeleton'
 import { computed, nextTick, ref, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 
-import { consultaComparacao } from '@/api/rotas'
+import { consultaComparacao, consultaEvolucao } from '@/api/rotas'
 import EstadoCarregando from '@/componentes/estado/EstadoCarregando.vue'
 import EstadoErro from '@/componentes/estado/EstadoErro.vue'
 import EstadoInicial from '@/componentes/estado/EstadoInicial.vue'
 import SecaoResultado from '@/componentes/estado/SecaoResultado.vue'
 import SeletorMunicipio from '@/componentes/filtros/SeletorMunicipio.vue'
 import SeletorPeriodo from '@/componentes/filtros/SeletorPeriodo.vue'
+import GraficoEvolucao from '@/componentes/resultados/GraficoEvolucao.vue'
 import GrupoCards from '@/componentes/resultados/GrupoCards.vue'
+import TabelaDadosGrafico from '@/componentes/resultados/TabelaDadosGrafico.vue'
+import TabelaVariacao from '@/componentes/resultados/TabelaVariacao.vue'
 import { useCacheResultados } from '@/composables/useCacheResultados'
 import { useConsulta } from '@/composables/useConsulta'
 import { useModoMock } from '@/composables/useModoMock'
@@ -25,6 +28,7 @@ import {
   type EdicaoComparacao,
 } from '@/dominio/filtros'
 import { formatarHora, formatarPeriodo } from '@/dominio/formatacao'
+import { criarSeriesCidades, montarTabelaDados, montarVariacao } from '@/dominio/graficos'
 import type { FiltroPeriodo } from '@/dominio/periodo'
 
 const SECAO_INDICADORES = 'secao-indicadores'
@@ -36,6 +40,7 @@ const cache = useCacheResultados()
 const { carregar: carregarModo } = useModoMock()
 const { periodos, erro: erroPeriodos, carregar: carregarPeriodos } = usePeriodos()
 const comparacao = useConsulta(consultaComparacao)
+const evolucao = useConsulta(consultaEvolucao)
 
 const filtros = ref<EdicaoComparacao | null>(null)
 
@@ -84,8 +89,28 @@ const consultadoAs = computed(() => {
     : base
 })
 
+const carregando = computed(() => comparacao.carregando.value || evolucao.carregando.value)
+
+const series = computed(() =>
+  evolucao.dados.value ? criarSeriesCidades(evolucao.dados.value.series) : null,
+)
+
+const tabelas = computed(() =>
+  series.value
+    ? {
+        valor: montarTabelaDados(series.value, 'valor_total'),
+        beneficiarios: montarTabelaDados(series.value, 'beneficiarios'),
+        variacao: montarVariacao(series.value),
+      }
+    : null,
+)
+
+const mostrarEvolucao = computed(
+  () => Boolean(evolucao.dados.value || evolucao.erro.value) || evolucao.carregando.value,
+)
+
 const filtrosMudaram = computed(() => {
-  const consultados = comparacao.filtrosResultado.value
+  const consultados = comparacao.filtrosResultado.value ?? evolucao.filtrosResultado.value
   if (!consultados || !filtros.value) return false
   return (
     JSON.stringify(montarQueryComparacao(consultados)) !==
@@ -94,8 +119,24 @@ const filtrosMudaram = computed(() => {
 })
 
 const mostrarInicial = computed(
-  () => !comparacao.dados.value && !comparacao.erro.value && !comparacao.carregando.value,
+  () =>
+    !carregando.value &&
+    !comparacao.dados.value &&
+    !comparacao.erro.value &&
+    !mostrarEvolucao.value,
 )
+
+function cancelar() {
+  comparacao.cancelar()
+  evolucao.cancelar()
+}
+
+function refazerEvolucao() {
+  const consultados =
+    comparacao.filtrosResultado.value ??
+    (filtros.value && completarFiltrosComparacao(filtros.value))
+  if (consultados) evolucao.executar(consultados)
+}
 
 async function gerar() {
   if (!filtros.value) return
@@ -103,7 +144,7 @@ async function gerar() {
   if (!completos) return
   cache.guardarFiltros('comparacao', filtros.value)
   router.replace({ query: montarQueryComparacao(filtros.value) })
-  await comparacao.executar(completos)
+  await Promise.all([comparacao.executar(completos), evolucao.executar(completos)])
   if (!comparacao.dados.value) return
   await nextTick()
   document.getElementById(SECAO_INDICADORES)?.focus()
@@ -121,7 +162,9 @@ watch(
     )
     filtros.value = iniciais
     const completos = completarFiltrosComparacao(iniciais)
-    if (completos) comparacao.restaurar(completos)
+    if (!completos) return
+    comparacao.restaurar(completos)
+    evolucao.restaurar(completos)
   },
   { immediate: true },
 )
@@ -160,16 +203,16 @@ watch(
             pendencia
           }}</span>
           <Button
-            v-if="comparacao.carregando.value"
+            v-if="carregando"
             label="Cancelar"
             variant="text"
             type="button"
-            @click="comparacao.cancelar"
+            @click="cancelar"
           />
           <Button
             type="submit"
-            :label="comparacao.carregando.value ? 'Consultando…' : 'Gerar comparativo'"
-            :loading="comparacao.carregando.value"
+            :label="carregando ? 'Consultando…' : 'Gerar comparativo'"
+            :loading="carregando"
             :disabled="Boolean(pendencia)"
             :aria-describedby="pendencia ? 'motivo-pendencia' : undefined"
           />
@@ -188,7 +231,7 @@ watch(
       abaixo ainda é de {{ resultado.cidades }}, {{ resultado.periodo }}.
     </Message>
     <EstadoCarregando
-      v-if="comparacao.carregando.value"
+      v-if="carregando"
       mensagem="Consultando o Portal da Transparência…"
       mensagem-demora="As duas cidades são consultadas ao mesmo tempo. Você pode esperar ou cancelar."
       :apos-ms="ESPERA_AVISO_MS"
@@ -226,6 +269,43 @@ watch(
         @tentar-novamente="gerar"
       />
     </SecaoResultado>
+
+    <template v-if="mostrarEvolucao">
+      <SecaoResultado
+        identificador="secao-valor"
+        titulo="Evolução do valor total"
+        descricao="Quanto cada cidade recebeu em cada mês do período."
+        :carregando="evolucao.carregando.value"
+        :erro="evolucao.erro.value"
+        @tentar-novamente="refazerEvolucao"
+      >
+        <template #carregando>
+          <Skeleton height="20rem" />
+        </template>
+        <template v-if="series && tabelas">
+          <GraficoEvolucao :series="series" campo="valor_total" />
+          <TabelaDadosGrafico legenda="Valor total recebido por mês" :tabela="tabelas.valor" />
+        </template>
+      </SecaoResultado>
+
+      <SecaoResultado
+        identificador="secao-beneficiarios"
+        titulo="Evolução dos beneficiários"
+        descricao="Quantas pessoas receberam em cada mês e quanto isso variou de um mês para o outro."
+        :carregando="evolucao.carregando.value"
+        :erro="evolucao.erro.value"
+        @tentar-novamente="refazerEvolucao"
+      >
+        <template #carregando>
+          <Skeleton height="20rem" />
+        </template>
+        <template v-if="series && tabelas">
+          <GraficoEvolucao :series="series" campo="beneficiarios" />
+          <TabelaVariacao :linhas="tabelas.variacao" />
+          <TabelaDadosGrafico legenda="Beneficiários por mês" :tabela="tabelas.beneficiarios" />
+        </template>
+      </SecaoResultado>
+    </template>
   </div>
 </template>
 
