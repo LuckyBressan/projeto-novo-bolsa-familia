@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import Select from 'primevue/select'
+import Tooltip from 'primevue/tooltip'
 import { computed, useId } from 'vue'
 
 import type { Periodos } from '@/api/tipos'
@@ -15,6 +16,7 @@ import {
 const props = defineProps<{ periodos: Periodos }>()
 const periodo = defineModel<FiltroPeriodo>({ required: true })
 
+const vTooltip = Tooltip
 const identificador = useId()
 
 const anos = computed(() => listarAnos(props.periodos))
@@ -39,7 +41,18 @@ function alterar(mudanca: Partial<FiltroPeriodo>) {
 
 <template>
   <fieldset class="periodo">
-    <legend class="periodo__titulo">Período</legend>
+    <legend class="periodo__titulo">
+      Período
+      <button
+        v-tooltip.top="{ value: regra, autoHide: false, class: 'tooltip-regra' }"
+        type="button"
+        class="periodo__ajuda"
+        aria-label="Regra do período"
+        :aria-describedby="`${identificador}-regra`"
+      >
+        <i class="pi pi-question-circle" aria-hidden="true" />
+      </button>
+    </legend>
     <div class="periodo__campos">
       <div class="campo">
         <label class="campo__rotulo" :for="`${identificador}-ano`">Ano</label>
@@ -78,7 +91,7 @@ function alterar(mudanca: Partial<FiltroPeriodo>) {
         />
       </div>
     </div>
-    <span :id="`${identificador}-regra`" class="texto-nota">{{ regra }}</span>
+    <span :id="`${identificador}-regra`" class="periodo__regra">{{ regra }}</span>
   </fieldset>
 </template>
 
@@ -98,6 +111,39 @@ function alterar(mudanca: Partial<FiltroPeriodo>) {
   padding: 0;
   font-size: 1.05rem;
   font-weight: 700;
+}
+
+.periodo__ajuda {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-left: var(--spacing-scale-half);
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: var(--color-secondary);
+  vertical-align: middle;
+  cursor: help;
+}
+
+.periodo__ajuda:hover {
+  color: var(--color);
+}
+
+.periodo__ajuda .pi {
+  font-size: 1rem;
+}
+
+.periodo__regra {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
 }
 
 .periodo__campos {
