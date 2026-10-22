@@ -40,6 +40,11 @@
     font-style: italic;
   }
 
+  .tooltip-regra .p-tooltip-text {
+    font-size: 0.85rem;
+    line-height: 1.4;
+  }
+
   .filtros {
     display: flex;
     flex-direction: column;
